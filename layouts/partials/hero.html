@@ -1,0 +1,16 @@
+<div class="hero">
+    <div class="hero-title">
+        <h1 class="display-4 my-4">{{ .Site.Title }}</h1>
+      <div class="hero-quote w-20px">
+        {{ with .Site.Params.quote }}
+          {{ . }}
+        {{ end }}
+      </div>
+    </div>
+      {{ $pag := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+      {{ with index $pag.Pages 0 }}
+        {{ .Scratch.Set "inHero" true }}
+        {{ partial "post_preview_top_img_cards_hero" . }}
+      {{ end }}
+</div>
+

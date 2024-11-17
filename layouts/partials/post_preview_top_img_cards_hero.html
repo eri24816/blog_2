@@ -1,0 +1,49 @@
+<div class="hero-post">
+    <a href="{{ .Permalink }}">
+        <div class="d-flex gap-5">
+            {{ if (strings.HasPrefix .Params.image "http") }}
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" class="lazyload hero-post-img">
+            {{ else }}
+                {{ with partial "get_image" . }}
+                    <img src="{{ ( .Resize " 500x" ).RelPermalink }}" alt="{{ .Title }}"
+                    class="card-img-bottom img-fluid lazyload">
+                {{ end }}
+            {{ end }}
+
+            {{ if .Params.video }}
+            <video loop autoplay muted playsinline class="img-title hero-post-video"></video>
+                <source src="{{ .Params.video }}">
+            </video>
+            {{ end }}
+            <div class="hero-post-content">
+            <h3 class="fw-medium post-title">{{ .Title }}</h3>
+            <div class="hero-post-text">
+
+                {{ if .Params.subtitle }}
+                <h3 class="post-subtitle">
+                    {{ .Params.subtitle }}
+                </h3>
+                {{ end }}
+
+                <p class="post-meta">
+                    {{ partial "post_meta_notes.html" . }}
+                </p>
+                {{ print }}
+                <div class="post-entry">
+
+                    {{ if .Description }}
+                    {{ .Description }}
+
+                    {{ else }}
+                    {{ .Summary }}
+                    {{ end }}
+                </div>
+
+                <div class="read-more-section">
+                    <h6 class="text-muted link-underline">{{ i18n "readMore" }} <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+        </div>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,37 @@
+
+<img src="https://i.imgur.com/pBOqZZb.png" alt="bg" class="bg-img">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() { 
+        const bgImg = document.querySelector('.bg-img');
+        const index = document.querySelector('.index');
+        const indexContainer = document.querySelector('.index-container');
+        function onscroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const opacity = scrollTop / 300;
+            const blur = Math.min(2, scrollTop / 400);
+            
+            let brightness;
+            // if .homepage exists, then we are on the homepage
+            if (index) {
+                brightness = Math.max(0.2, 0.8 - scrollTop / 300);
+            } else {
+                brightness = 0.2;
+            }
+
+            if (indexContainer) {
+                indexContainer.style.opacity = opacity;
+            }
+            
+            //document.body.style.backdropFilter = `brightness(${brightness}) blur(${blur}px)`;
+            
+            if (bgImg) {
+                bgImg.style.filter = `brightness(${brightness})`;
+                bgImg.style.top = `${0.7 * scrollTop}px`;
+            }
+        }
+        onscroll();
+
+        window.addEventListener('scroll', onscroll);
+    });
+</script>

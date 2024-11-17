@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+
+{{ partial "hero.html" . }}
+{{/*  tells js that this is the index page  */}}
+<div class="index"></div>
+
+<div class="container index-container" role="main">
+  <div class="row g-5">
+    {{ with .Content }}
+    <div class="well">
+      {{.}}
+    </div>
+    {{ end }}
+
+
+    {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections )  }}
+    {{ range after 1 $pag.Pages }}
+    {{ partial "post_preview_card" . }}
+    {{ end }}
+
+
+  </div>
+
+  <div class="row font-sans">
+    <div class="col-md-12 mt-10">
+      <nav aria-label="Page navigation">
+        <div class="pagination justify-content-end">
+          {{ template "_internal/pagination.html" . }}
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+{{ end }}
