@@ -1,7 +1,7 @@
 baseURL = 'https://eri24816.github.io/blog_2/'
 languageCode = 'zh-tw'
 DefaultContentLanguage = "zh"
-title = "Eri24816's blog"
+title = "eri24816's blog"
 theme = 'lightbi-hugo'
 
 [pagination]
