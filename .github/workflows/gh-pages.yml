@@ -21,12 +21,6 @@ jobs:
           hugo-version: '0.124.1'
           extended: true
 
-      - name: Install dependencies (hugo)
-        run: npm install
-
-      - name: Install dependencies (chunky-poster)
-        run: cd themes/chunky-poster && yarn install
-
       - name: Build
         uses: nick-fields/retry@v3
         with:
