@@ -3,29 +3,29 @@
 <script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelector(".bg-img"),s=document.querySelector(".index"),t=document.querySelector(".index-container");function n(){const n=window.pageYOffset||document.documentElement.scrollTop,i=n/300,a=Math.min(2,n/400);let o;s?o=Math.max(.2,.8-n/300):o=.2,t&&(t.style.opacity=i),e&&(e.style.filter=`brightness(${o})`,e.style.top=`${.7*n}px`)}n(),window.addEventListener("scroll",n)})</script><div class="container fixed-top mw-100"><div class="row justify-content-center"><div class="col-sm-12 col-md-12 col-lg-10 col-xl-10"><nav class="navbar navbar-expand-lg navbar-light fixed-top p-0"><div class=container><a class="navbar-brand fw-bold" href=https://eri24816.github.io/blog_2/>eri24816's blog</a>
 <button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarNav aria-controls=navbarNav aria-expanded=false aria-label="Toggle navigation">
 <span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse justify-content-end" id=navbarNav><ul class="navbar-nav mb-2 mb-lg-0 align-items-baseline"><li class="nav-item dropdown"><button class="p-1 rounded dropdown-toggle border-gray-500" data-bs-toggle=dropdown aria-expanded=false>
-zh-tw</button><ul class=dropdown-menu><li><a class="dropdown-item active" aria-current=page href=https://eri24816.github.io/blog_2/post/jenkins-docker/>繁體中文</a></li></ul></li><li class="nav-item nav-link"><a id=dark-mode-toggle class="bi bi-moon-stars" role=button></a></li></ul></div></div></nav></div></div></div><header class=header-section><div class="intro-header no-img mt-10"><div class=container><div class="row justify-content-center"><div class="col-sm-12 col-md-12 col-lg-8 col-xl-8"><div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><div class=post-heading><h1 class="fw-semibold display-5 lh-1 mb-3">用 Jenkins 部屬 Docker 應用程式</h1><span class=post-meta><div class="row post-meta text-muted"><div class="col-sm-12 col-md-6 px-0">&nbsp; November 18, 2024</div><div class="col-sm-12 col-md-6 text-sm-start text-md-end px-0"></div></div></span></div></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4"><article role=main class=blog-post><p>我用 Vue 和 Python 做了 AI 生成音樂的應用程式，然後用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。</p><p>前置作業是要在 server 上安裝 Docker 和 Jenkins。不過有人幫我裝好了，所以這裡不寫細節。(我也不會裝</p><h1 id=新增-jenkinsfile-和-dockerfile>新增 Jenkinsfile 和 Dockerfile</h1><p>首先要在 git repo 裡面新增 Jenkinsfile 和 Dockerfile。</p><p>Jenkinsfile 用來描述每次有新 commit 要做的三件事: build image、刪掉舊 container、跑新 container。</p><pre tabindex=0><code class=language-Jenkins data-lang=Jenkins>pipeline {
-    agent any
-
-    stages {
-        stage(&#39;Build&#39;) {
-            steps {
-                script {
-                    sh &#39;docker build -t midi-gen .&#39;
-                }
-            }
-        }
-
-        stage(&#39;Run&#39;) {
-            steps { 
-                script {
-                    sh &#39;docker ps -qa --filter &#34;name=midi-gen&#34; | grep -q . &amp;&amp; docker stop midi-gen &amp;&amp; docker rm midi-gen || true&#39;
-                    sh &#39;docker run --name midi-gen -e CHECKPOINT_PATH=/volume/checkpoint.pt -v /home/eri/midi-gen-volume:/volume -p 8010:8010 --gpus all --rm -d midi-gen&#39; 
-                }
-            }
-        }
-    }
-}
-</code></pre><p>Dockerfile 的內容不是本文重點，但放在這裡供參:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Dockerfile data-lang=Dockerfile><span style=display:flex><span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> node:22-alpine as frontend-builder</span><span style=color:#960050;background-color:#1e0010>
+zh-tw</button><ul class=dropdown-menu><li><a class="dropdown-item active" aria-current=page href=https://eri24816.github.io/blog_2/post/jenkins-docker/>繁體中文</a></li></ul></li><li class="nav-item nav-link"><a id=dark-mode-toggle class="bi bi-moon-stars" role=button></a></li></ul></div></div></nav></div></div></div><header class=header-section><div class="intro-header no-img mt-10"><div class=container><div class="row justify-content-center"><div class="col-sm-12 col-md-12 col-lg-8 col-xl-8"><div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"><div class=post-heading><h1 class="fw-semibold display-5 lh-1 mb-3">用 Jenkins 部屬 Docker 應用程式</h1><span class=post-meta><div class="row post-meta text-muted"><div class="col-sm-12 col-md-6 px-0">&nbsp; November 18, 2024</div><div class="col-sm-12 col-md-6 text-sm-start text-md-end px-0"></div></div></span></div></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4"><article role=main class=blog-post><p>我用 Vue 和 Python 做了 AI 生成音樂的應用程式，然後用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。</p><p>前置作業是要在 server 上安裝 Docker 和 Jenkins。不過有人幫我裝好了，所以這裡不寫細節。(我也不會裝</p><h1 id=新增-jenkinsfile-和-dockerfile>新增 Jenkinsfile 和 Dockerfile</h1><p>首先要在 git repo 裡面新增 Jenkinsfile 和 Dockerfile。</p><p>Jenkinsfile 用來描述每次有新 commit 要做的三件事: build image、刪掉舊 container、跑新 container。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#a6e22e>pipeline</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>agent</span> <span style=color:#a6e22e>any</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>stages</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>stage</span>(<span style=color:#e6db74>&#39;Build&#39;</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>steps</span> {
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>script</span> {
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>sh</span> <span style=color:#e6db74>&#39;docker build -t midi-gen .&#39;</span>
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>stage</span>(<span style=color:#e6db74>&#39;Run&#39;</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>steps</span> { 
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>script</span> {
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>sh</span> <span style=color:#e6db74>&#39;docker ps -qa --filter &#34;name=midi-gen&#34; | grep -q . &amp;&amp; docker stop midi-gen &amp;&amp; docker rm midi-gen || true&#39;</span>
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>sh</span> <span style=color:#e6db74>&#39;docker run --name midi-gen -e CHECKPOINT_PATH=/volume/checkpoint.pt -v /home/eri/midi-gen-volume:/volume -p 8010:8010 --gpus all --rm -d midi-gen&#39;</span> 
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Dockerfile 的內容不是本文重點，也不會都長這樣，但放在這裡供參:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Dockerfile data-lang=Dockerfile><span style=display:flex><span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> node:22-alpine as frontend-builder</span><span style=color:#960050;background-color:#1e0010>
 </span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>WORKDIR</span><span style=color:#e6db74> /frontend</span><span style=color:#960050;background-color:#1e0010>
 </span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
 </span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>COPY</span> frontend/package.json frontend/package-lock.json ./<span style=color:#960050;background-color:#1e0010>
@@ -52,7 +52,7 @@ zh-tw</button><ul class=dropdown-menu><li><a class="dropdown-item active" aria-c
 </span></span></span></code></pre></div><h1 id=在-jenkins-上設定-pipeline>在 Jenkins 上設定 pipeline</h1><p>先在 Jenkins 安裝 GitHub plugin。</p><p>然後新增 pipeline</p><p><img src=https://i.imgur.com/oSjajxr.png>
 <img src=https://i.imgur.com/zt6vmdb.png></p><p>進入 pipeline 的 configuration，然後指定 git repo 和 build trigger
 <img src=https://i.imgur.com/nKd12Lb.png>
-<img src=https://i.imgur.com/lvVA2t3.png></p><p>最後在 GitHub repo 上面新增 webhook，發送到 <code>&lt;你的 jenkins url>/github-webhook/</code>。這樣 GitHub 就會在 push 的時候通知 jenkins 佈署。
+<img src=https://i.imgur.com/lvVA2t3.png></p><p>最後在 GitHub repo 上面新增 webhook，發送到 <code>&lt;你的 jenkins url>/github-webhook/</code>。這樣 GitHub 就會在 push 的時候通知 Jenkins 佈署。
 <img src=https://i.imgur.com/x8EonGV.png></p><p>然後就完成自動佈署的串接了。你可以試著 commit 看看，應該能觸發 Jenkins pipeline 並讓你的應用程式在 server 上啟動/更新。</p></article></div></div><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><hr class=m-0></div><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2"><div class=blog-tags><a href=https://eri24816.github.io/blog_2/tags/tech/>tech</a>
 <a href=https://eri24816.github.io/blog_2/tags/cicd/>CICD</a>
 <a href=https://eri24816.github.io/blog_2/tags/docker/>Docker</a>
