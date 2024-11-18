@@ -1,5 +1,5 @@
 ---
-title: 用 Jenkins 佈署 Docker 應用程式
+title: Deploy Docker applications automatically with Jenkins
 date: 2024-11-18
 authors:
   - eri24816
@@ -14,13 +14,14 @@ categories: tech
 series: 
 summary: 用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。
 ---
-我用 Vue 和 Python 做了 AI 生成音樂的應用程式，然後用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。
+I created an AI-generated music application using Vue and Python, and I used Jenkins to automatically pull each commit from GitHub and deploy it to the server. It's incredibly convenient!
 
-前置作業是要在 server 上安裝 Docker 和 Jenkins。不過有人幫我裝好了，所以這裡不寫細節。(我也不會裝
-# 新增 Jenkinsfile 和 Dockerfile
-首先要在 git repo 裡面新增 Jenkinsfile 和 Dockerfile。
+The initial setup involves installing Docker and Jenkins on the server. However, someone helped me with the installation, so I won’t go into the details here. (I don’t know how to install them either.)
+# Add Jenkinsfile and Dockerfile
+First, add Jenkinsfile and Dockerfile to your git repo.
 
-Jenkinsfile 用來描述每次有新 commit 要做的三件事: build image、刪掉舊 container、跑新 container。
+The Jenkinsfile is used to define three tasks to perform whenever there’s a new commit: build the image, remove the old container, then run the new container.
+
 ```javascript
 pipeline {
     agent any
@@ -46,7 +47,7 @@ pipeline {
 }
 ```
 
-Dockerfile 的內容不是本文重點，也不會都長這樣，但放在這裡供參:
+The content of the Dockerfile is not the focus of this discussion and may not always look like this, but I put it here FYI anyway:
 ```Dockerfile
 FROM node:22-alpine as frontend-builder
 WORKDIR /frontend
