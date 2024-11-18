@@ -10,11 +10,12 @@ tags:
   - CICD
   - Docker
   - Jenkins
+  - automation
 categories: tech
 series: 
-summary: 用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。
+summary: Use Jenkins to automatically pull each commit from GitHub and deploy it to the server. It's very convenient!
 ---
-I created an AI-generated music application using Vue and Python, and I used Jenkins to automatically pull each commit from GitHub and deploy it to the server. It's incredibly convenient!
+I created an AI-generated music application using Vue and Python, and I used Jenkins to automatically pull each commit from GitHub and deploy it to the server. It's very convenient!
 
 The initial setup involves installing Docker and Jenkins on the server. However, someone helped me with the installation, so I won’t go into the details here. (I don’t know how to install them either.)
 # Add Jenkinsfile and Dockerfile

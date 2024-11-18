@@ -10,6 +10,7 @@ tags:
   - CICD
   - Docker
   - Jenkins
+  - automation
 categories: tech
 series: 
 summary: 用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。
