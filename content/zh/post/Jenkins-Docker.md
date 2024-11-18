@@ -11,7 +11,7 @@ categories: tech
 series: 
 summary:
 ---
-我用 Vue 和 Python 做了 AI 生成音樂的應用程式。為了讓每個 commit 自動佈署到 server，我學了 Jenkins 怎麼用。
+我用 Vue 和 Python 做了 AI 生成音樂的應用程式，然後用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。
 # 安裝 Docker 和 Jenkins
 
 前置作業是要在 server 上安裝 Docker 和 Jenkins。不過有人幫我裝好了，所以這裡不寫細節。
@@ -77,6 +77,9 @@ CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8010"]
 ![](https://i.imgur.com/oSjajxr.png)
 ![](https://i.imgur.com/zt6vmdb.png)
 
-進入 pipeline 的 configuration，然後指定 git repo
+進入 pipeline 的 configuration，然後指定 git repo 和 build trigger
 ![](https://i.imgur.com/nKd12Lb.png)
-![Uploading file...soxs1]()
+![](https://i.imgur.com/lvVA2t3.png)
+
+最後在 GitHub repo 上面設定 webhook，
+![](https://i.imgur.com/x8EonGV.png)
