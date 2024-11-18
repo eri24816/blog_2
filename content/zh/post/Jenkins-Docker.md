@@ -21,7 +21,7 @@ summary: 用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 s
 首先要在 git repo 裡面新增 Jenkinsfile 和 Dockerfile。
 
 Jenkinsfile 用來描述每次有新 commit 要做的三件事: build image、刪掉舊 container、跑新 container。
-```Jenkins
+```javascript
 pipeline {
     agent any
 
@@ -46,7 +46,7 @@ pipeline {
 }
 ```
 
-Dockerfile 的內容不是本文重點，但放在這裡供參:
+Dockerfile 的內容不是本文重點，也不會都長這樣，但放在這裡供參:
 ```Dockerfile
 FROM node:22-alpine as frontend-builder
 WORKDIR /frontend
@@ -87,7 +87,7 @@ CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8010"]
 ![](https://i.imgur.com/nKd12Lb.png)
 ![](https://i.imgur.com/lvVA2t3.png)
 
-最後在 GitHub repo 上面新增 webhook，發送到 `<你的 jenkins url>/github-webhook/`。這樣 GitHub 就會在 push 的時候通知 jenkins 佈署。
+最後在 GitHub repo 上面新增 webhook，發送到 `<你的 jenkins url>/github-webhook/`。這樣 GitHub 就會在 push 的時候通知 Jenkins 佈署。
 ![](https://i.imgur.com/x8EonGV.png)
 
 然後就完成自動佈署的串接了。你可以試著 commit 看看，應該能觸發 Jenkins pipeline 並讓你的應用程式在 server 上啟動/更新。
