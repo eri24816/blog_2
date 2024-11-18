@@ -1,6 +1,6 @@
 baseURL = 'https://eri24816.github.io/blog_2/'
 languageCode = 'zh-tw'
-DefaultContentLanguage = "zh"
+DefaultContentLanguage = "zh-TW"
 title = "eri24816's blog"
 theme = 'lightbi-hugo'
 
@@ -17,7 +17,7 @@ previewCardImagePlacement = "top"
 quote = "希望在大學的壓力下不要丟失我的初衷。\n那就是：我喜愛這個世界，所以想以最 high level 的角度理解世界，幫各種我喜歡的東西建立模型。例如音樂生成模型、style transfer、物理模擬。"
 
 [languages]
-  [languages.zh]
+  [languages.zh-TW]
     languageName = "繁體中文"
     contentDir = "content/zh"
     weight = 1
