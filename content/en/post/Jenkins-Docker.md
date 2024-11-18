@@ -1,5 +1,5 @@
 ---
-title: Deploy Docker applications automatically with Jenkins
+title: Deploy Docker Applications Automatically with Jenkins
 date: 2024-11-18
 authors:
   - eri24816
@@ -75,20 +75,20 @@ COPY --from=frontend-builder /frontend/dist ./static
 CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8010"]
 ```
 
-# 在 Jenkins 上設定 pipeline
+# Set up the pipeline on Jenkins
 
-先在 Jenkins 安裝 GitHub plugin。
+First, install the GitHub plugin in Jenkins.
 
-然後新增 pipeline
+Then, create a new pipeline.
 
 ![](https://i.imgur.com/oSjajxr.png)
 ![](https://i.imgur.com/zt6vmdb.png)
 
-進入 pipeline 的 configuration，然後指定 git repo 和 build trigger
+Enter pipeline configuration, and specify the git repo and the build trigger
 ![](https://i.imgur.com/nKd12Lb.png)
 ![](https://i.imgur.com/lvVA2t3.png)
 
-最後在 GitHub repo 上面新增 webhook，發送到 `<你的 jenkins url>/github-webhook/`。這樣 GitHub 就會在 push 的時候通知 Jenkins 佈署。
+Finally, add a webhook to your GitHub repository, pointing to `<your jenkins url>/github-webhook/`. This way, GitHub will notify Jenkins to deploy whenever you push changes.
 ![](https://i.imgur.com/x8EonGV.png)
 
-然後就完成自動佈署的串接了。你可以試著 commit 看看，應該能觸發 Jenkins pipeline 並讓你的應用程式在 server 上啟動/更新。
+And that’s it! The automatic deployment setup is complete. You can try making a commit to test it—Jenkins should trigger the pipeline and start/update your application on the server.
