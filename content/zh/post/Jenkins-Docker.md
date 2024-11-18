@@ -12,10 +12,9 @@ series:
 summary:
 ---
 我用 Vue 和 Python 做了 AI 生成音樂的應用程式。為了讓每個 commit 自動佈署到 server，我學了 Jenkins 怎麼用。
-
 # 安裝 Docker 和 Jenkins
 
-前置作業是要在 server 上安裝 Docker 和 Jenkins。有人幫我裝好了也不確定怎麼裝
+前置作業是要在 server 上安裝 Docker 和 Jenkins。不過有人幫我裝好了，所以這裡不寫細節。
 # 新增 Jenkinsfile 和 Dockerfile
 首先要在 git repo 裡面新增 Jenkinsfile 和 Dockerfile。
 
@@ -72,3 +71,12 @@ COPY --from=frontend-builder /frontend/dist ./static
 
 CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8010"]
 ```
+
+# 在 Jenkins 上設定 pipline
+
+![](https://i.imgur.com/oSjajxr.png)
+![](https://i.imgur.com/zt6vmdb.png)
+
+進入 pipeline 的 configuration，然後指定 git repo
+![](https://i.imgur.com/nKd12Lb.png)
+![Uploading file...soxs1]()
