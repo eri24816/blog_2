@@ -12,17 +12,16 @@ tags:
   - Jenkins
 categories: tech
 series: 
-summary:
+summary: 用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。
 ---
 我用 Vue 和 Python 做了 AI 生成音樂的應用程式，然後用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。
-# 安裝 Docker 和 Jenkins
 
-前置作業是要在 server 上安裝 Docker 和 Jenkins。不過有人幫我裝好了，所以這裡不寫細節。
+前置作業是要在 server 上安裝 Docker 和 Jenkins。不過有人幫我裝好了，所以這裡不寫細節。(我也不會裝
 # 新增 Jenkinsfile 和 Dockerfile
 首先要在 git repo 裡面新增 Jenkinsfile 和 Dockerfile。
 
 Jenkinsfile 用來描述每次有新 commit 要做的三件事: build image、刪掉舊 container、跑新 container。
-```Jenkinsfile
+```Jenkins
 pipeline {
     agent any
 
@@ -91,4 +90,4 @@ CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8010"]
 最後在 GitHub repo 上面新增 webhook，發送到 `<你的 jenkins url>/github-webhook/`。這樣 GitHub 就會在 push 的時候通知 jenkins 佈署。
 ![](https://i.imgur.com/x8EonGV.png)
 
-然後就完成自動佈署的串接了。你可以試著 commit 看看，應該能觸發 Jenkins pipeline 並讓你的應用程式再 server 上啟動/更新。
+然後就完成自動佈署的串接了。你可以試著 commit 看看，應該能觸發 Jenkins pipeline 並讓你的應用程式在 server 上啟動/更新。

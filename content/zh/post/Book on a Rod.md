@@ -9,7 +9,7 @@ tags:
   - InformationTheory
 categories: math
 series: 
-summary:
+summary: I was wondering how to quantitatively represent the capacity of an VAE’s latent variable (or a reconstruction step of a diffusion model) in bits, making it comparable to other distributions, such as the data distribution?
 ---
 # The Problem
   
