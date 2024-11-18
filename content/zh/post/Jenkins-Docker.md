@@ -7,6 +7,7 @@ image: /Pasted image 20241116182611.png
 draft: true
 tags:
   - tech
+  - CICD
 categories: tech
 series: 
 summary:
@@ -72,7 +73,11 @@ COPY --from=frontend-builder /frontend/dist ./static
 CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8010"]
 ```
 
-# 在 Jenkins 上設定 pipline
+# 在 Jenkins 上設定 pipeline
+
+先在 Jenkins 安裝 GitHub plugin。
+
+然後新增 pipeline
 
 ![](https://i.imgur.com/oSjajxr.png)
 ![](https://i.imgur.com/zt6vmdb.png)
@@ -81,5 +86,7 @@ CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8010"]
 ![](https://i.imgur.com/nKd12Lb.png)
 ![](https://i.imgur.com/lvVA2t3.png)
 
-最後在 GitHub repo 上面設定 webhook，
+最後在 GitHub repo 上面新增 webhook，發送到 `<你的 jenkins url>/github-webhook/`。這樣 GitHub 就會在 push 的時候通知 jenkins 佈署。
 ![](https://i.imgur.com/x8EonGV.png)
+
+然後就完成自動佈署的串接了。你可以試著 commit 看看，應該能觸發 Jenkins pipeline 並讓你的應用程式再 server 上啟動/更新。
