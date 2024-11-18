@@ -11,9 +11,39 @@ categories: tech
 series: 
 summary:
 ---
-我用 Vue 和 Python 做了 AI 生成音樂的應用程式。為了讓每個 commit 自動部屬到 server，我學了 Jenkins 怎麼用。
+我用 Vue 和 Python 做了 AI 生成音樂的應用程式。為了讓每個 commit 自動佈署到 server，我學了 Jenkins 怎麼用。
 
-在 git repo 裡面新增 Dockerfile 和 Jenkinsfile
+# 安裝 Docker 和 Jenkins
+
+前置作業是要在 server 上安裝 Docker 和 Jenkins。有人幫我裝好了也不確定怎麼裝
+# 新增 Jenkinsfile 和 Dockerfile
+首先要在 git repo 裡面新增 Jenkinsfile 和 Dockerfile。
+
+Jenkinsfile 用來描述每次有新 commit 要做的三件事: build image、刪掉舊 container、跑新 container。
+```Jenkinsfile
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    sh 'docker build -t midi-gen .'
+                }
+            }
+        }
+
+        stage('Run') {
+            steps { 
+                script {
+                    sh 'docker ps -qa --filter "name=midi-gen" | grep -q . && docker stop midi-gen && docker rm midi-gen || true'
+                    sh 'docker run --name midi-gen -e CHECKPOINT_PATH=/volume/checkpoint.pt -v /home/eri/midi-gen-volume:/volume -p 8010:8010 --gpus all --rm -d midi-gen' 
+                }
+            }
+        }
+    }
+}
+```
 
 Dockerfile 的內容不是本文重點，但放在這裡供參:
 ```Dockerfile
@@ -41,30 +71,4 @@ WORKDIR /app
 COPY --from=frontend-builder /frontend/dist ./static
 
 CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8010"]
-```
-Jenkinsfile 做三件事: build image、刪掉舊 container、跑新 container。
-```pipeline
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                script {
-                    sh 'docker build -t midi-gen .'
-                }
-            }
-        }
-
-        stage('Run') {
-            steps { 
-                script {
-                    sh 'docker ps -qa --filter "name=midi-gen" | grep -q . && docker stop midi-gen && docker rm midi-gen || true'
-                    sh 'docker run --name midi-gen -e CHECKPOINT_PATH=/volume/checkpoint.pt -v /home/eri/midi-gen-volume:/volume -p 8010:8010 --gpus all --rm -d midi-gen' 
-                }
-            }
-        }
-    }
-}
-
 ```
