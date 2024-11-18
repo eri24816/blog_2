@@ -3,11 +3,13 @@ title: 用 Jenkins 部屬 Docker 應用程式
 date: 2024-11-18
 authors:
   - eri24816
-image: /Pasted image 20241116182611.png
-draft: true
+image: https://i.imgur.com/QEWQGr9.png
+draft: false
 tags:
   - tech
   - CICD
+  - Docker
+  - Jenkins
 categories: tech
 series: 
 summary:
