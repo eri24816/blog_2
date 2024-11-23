@@ -4,7 +4,7 @@ DefaultContentLanguage = "zh-TW"
 title = "eri24816's blog"
 theme = 'lightbi-hugo'
 
-staticDir = ["content/static"]
+staticDir = ["content/static", "static"]
 
 [pagination]
     pagerSize = 18
