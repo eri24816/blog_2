@@ -1,0 +1,110 @@
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+body {
+    font-size: 1rem;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    font-family: "Raleway", "Microsoft JhengHei";
+    z-index: 0;
+  }
+
+
+body{
+    position: relative;
+	background-repeat :no-repeat;
+	background-attachment :fixed;
+    background-position :-400px;
+    background-size :130%;
+    /* color:rgb(210, 220, 255); */
+}
+
+.hero{
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 50px;
+}
+
+.hero-title{
+    width: 500px;
+    margin-left: 150px;
+}
+
+.hero-post{
+    margin-top: 200px;
+    margin-bottom: 150px;
+    position: relative;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    max-height: 300px;
+}
+
+.hero-post-img{
+    flex: 1;
+    flex-basis: 300px;
+    min-width: 0px;
+    border-radius: 10px;
+    margin-top: 0px;
+}
+
+.hero-post-video{
+    flex: 1;
+}
+
+.hero-post-content{
+    flex: 1;
+    flex-basis: 400px;
+    max-height: 300px;
+    overflow: hidden;
+    color: #bdbdbd;
+}
+
+:root[data-theme=dark] .hero-post-text h1,
+:root[data-theme=dark] .hero-post-text h2,
+:root[data-theme=dark] .hero-post-text h3,
+:root[data-theme=dark] .hero-post-text h4,
+:root[data-theme=dark] .hero-post-text h5,
+:root[data-theme=dark] .hero-post-text h6{
+    font-size: 1rem;
+}
+
+.bg-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.2);
+}
+
+.card-img-bottom{
+    max-height: 200px;
+}
+
+.hero-quote{
+    width: 500px;
+}
+ 
+a{
+    color:rgba(68, 134, 255, 0.801)!important;
+}
+
+a:hover {
+    color:rgb(83, 161, 209)!important;
+}
+
+.bg-dark {
+    background-color: #00000000!important;
+}
+
+.single-post-card{
+    max-height: 500px;
+    
+    overflow: hidden;
+}
