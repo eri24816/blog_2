@@ -26,6 +26,11 @@ body{
     margin-left: 100px;
     margin-right: 100px;
     padding-top: 50px;
+    max-width: 100%;
+}
+
+.hero-quote{
+    max-width: 100%;
 }
 
 .hero-title{
@@ -38,11 +43,15 @@ body{
     .hero{
         margin-left: auto;
         margin-right: auto;
+        padding: 20px;
     }
     .hero-title {
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+    }
+    .hero-post > div{
+        flex-direction: column;
     }
 }
 
