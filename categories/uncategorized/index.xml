@@ -6,4 +6,53 @@
 &lt;p>\end{align}&lt;/p>
 &lt;p>$$&lt;/p>
 &lt;p>where $c$ is the wave speed, $E$ is the Young&amp;rsquo;s modulus, $S$ is the cross-sectional area, $K$ is the radius of gyration, and $\rho$ is the density.&lt;/p>
-&lt;p>The general solution is:&lt;/p></description></item></channel></rss>
+&lt;p>The general solution is:&lt;/p></description></item><item><title>My Skill Tree</title><link>https://eri24816.tw/post/skill-tree/</link><pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/skill-tree/</guid><description>&lt;ul>
+&lt;li>Math
+&lt;ul>
+&lt;li>Complex
+&lt;ul>
+&lt;li>Julia Set&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Software Engineering
+&lt;ul>
+&lt;li>Programming Language
+&lt;ul>
+&lt;li>Scratch&lt;/li>
+&lt;li>Processing&lt;/li>
+&lt;li>C#&lt;/li>
+&lt;li>C++&lt;/li>
+&lt;li>Python&lt;/li>
+&lt;li>Typescript&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Framework
+&lt;ul>
+&lt;li>Unity&lt;/li>
+&lt;li>PyTorch
+&lt;ul>
+&lt;li>PyTorch DDP&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Juce&lt;/li>
+&lt;li>VueJS&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>System
+&lt;ul>
+&lt;li>Docker&lt;/li>
+&lt;li>SLURM&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>CICD Tools
+&lt;ul>
+&lt;li>GitHub Actions&lt;/li>
+&lt;li>ArgoCD&lt;/li>
+&lt;li>Jenkins&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>
