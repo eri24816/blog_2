@@ -6,6 +6,16 @@
           {{ . }}
         {{ end }}
       </div>
+
+      <div class="hero-links">
+        <a href="https://github.com/eri24816">GitHub</a>
+        <a href="https://eri24816.tw/docs/resume241125.pdf">Resume</a>
+        <a href="https://open.spotify.com/artist/5XJx2SFNvzx61hF4OX3Z32?si=e91547d3fd2c4f59">Spotify</a>
+        <a href="/post/contact">Contact</a>
+
+      </div>
+      Listen to my music on spotify!
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/5XJx2SFNvzx61hF4OX3Z32?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
       {{ $pag := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
       {{ with index $pag.Pages 0 }}

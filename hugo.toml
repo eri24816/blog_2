@@ -16,7 +16,7 @@ summaryLength  = "30"
 [Params]
     customCSS = ["custom.css"]
 previewCardImagePlacement = "top"
-quote = "希望在大學的壓力下不要丟失我的初衷。\n那就是：我喜愛這個世界，所以想以最 high level 的角度理解世界，幫各種我喜歡的東西建立模型。例如音樂生成模型、style transfer、物理模擬。"
+quote = "我想以最 high level 的角度理解世界，幫各種我喜歡的東西建立模型。例如音樂生成模型、style transfer、物理模擬。"
 
 [languages]
   [languages.zh-TW]
@@ -28,3 +28,24 @@ quote = "希望在大學的壓力下不要丟失我的初衷。\n那就是：我
     languageName = "English"
     contentDir = "content/en"
     weight = 2
+
+[menus]
+  [[menus.main]]
+    name = 'Contact'
+    pageRef = '/post/contact'
+    weight = 10
+  
+  [[menus.main]]
+    name = 'GitHub'
+    url = 'https://github.com/eri24816'
+    weight = 20
+
+  [[menus.main]]
+    name = 'Spotify'
+    url = 'https://open.spotify.com/artist/5XJx2SFNvzx61hF4OX3Z32?si=e91547d3fd2c4f59'
+    weight = 30
+
+  [[menus.main]]
+    name = 'Resume'
+    url = '/docs/resume241125.pdf'
+    weight = 40

@@ -29,19 +29,40 @@ body{
 }
 
 .hero-title{
-    width: 500px;
+    max-width: 500px;
     margin-left: 150px;
+}
+
+/* if the screen is smaller than 768px, the hero-title will be centered */
+@media (max-width: 768px) {
+    .hero{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-title {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}
+
+.hero-links{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
 }
 
 .hero-post{
     margin-top: 200px;
     margin-bottom: 150px;
     position: relative;
-    width: 1000px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     max-height: 300px;
+    flex-wrap: wrap;
 }
 
 .hero-post-img{
@@ -92,11 +113,11 @@ body{
 }
  
 a{
-    color:rgba(68, 134, 255, 0.801)!important;
+    color:rgb(95, 167, 255)!important;
 }
 
 a:hover {
-    color:rgb(83, 161, 209)!important;
+    color:rgb(168, 222, 255)!important;
 }
 
 .bg-dark {
