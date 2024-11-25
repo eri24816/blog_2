@@ -47,12 +47,10 @@ Alternatively, we can solve $a_n$ and $b_n$ and then calculate $u$ from (2). Wit
   
 
 $$
-
 \begin{align}
 a_n = \frac{2}{L} &\int_0^L u(x,0) \sin\left(\frac{n\pi}{L}x\right) dx \\
 b_n = \frac{1}{\omega _n}\frac{2}{L} &\int_0^L u'(x,0) \sin\left(\frac{n\pi}{L}x\right) dx
 \end{align}
-
 $$
 
   
