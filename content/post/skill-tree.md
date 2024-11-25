@@ -1,5 +1,5 @@
 ---
-title: 我的技能樹
+title: My Skill Tree
 date: 2024-11-25
 authors:
   - eri24816
@@ -12,7 +12,9 @@ series:
 summary:
 ---
 - Math
-- SWE
+	- Complex
+		- Julia Set
+- Software Engineering
 	- Programming Language
 		- Scratch
 		- Processing
@@ -23,10 +25,13 @@ summary:
 	- Framework
 		- Unity
 		- PyTorch
+			- PyTorch DDP
 		- Juce
 		- VueJS
-- 
+	- System
+		- Docker
+		- SLURM
 	- CICD Tools
-		- Github Action
+		- GitHub Actions
 		- ArgoCD
 		- Jenkins
