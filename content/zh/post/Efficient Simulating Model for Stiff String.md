@@ -128,6 +128,5 @@ $$
 
   
 
-Although a delta function shaped impulse is feasible for a simulation in the frequency domain, it introduces intense high-frequency components. I'm not sure if it's realistic. If not, we may need to consider a Gaussian shaped impulse.
-
+Although a delta function shaped impulse is feasible for a simulation in the frequency domain, it introduces intense high-frequency components. I'm not sure if it's realistic enough. Anyway, it's simple (no integration in it) thus efficient when used in a simulation.
   
