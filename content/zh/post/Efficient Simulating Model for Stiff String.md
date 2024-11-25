@@ -39,9 +39,9 @@ where $f_n = n f_0 \sqrt{1 + Bn^2}$, $B = \frac{\pi^2 ESK^2}{\tau L^2}$, $f_0 = 
 
 # Simulation of Stiff String
 
-I tried to simulate a stiff string by solving $u$ using Euler's method. It was quite unstable, especially when high frequency components present.
+To simulate a stiff string, I tried to directly solving the displacement, $u$, using Euler's method. It turns out to be quite unstable, especially when high frequency components present.
 
-Alternatively, we can solve $a_n$ and $b_n$ and then calculate $u$ from (2). With the initial condition $u(x,t=0)$ and $u'(x,t=0)$, the corresponding $a_n$ and $b_n$ are:
+Alternatively, we can solve $a_n$ and $b_n$ instead, which is very stable. We can get $u$ easily from them using (2). With the initial condition $u(x,t=0)$ and $u'(x,t=0)$, the corresponding $a_n$ and $b_n$ are:
 
   
 
