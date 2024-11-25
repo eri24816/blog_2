@@ -41,7 +41,7 @@ where $f_n = n f_0 \sqrt{1 + Bn^2}$, $B = \frac{\pi^2 ESK^2}{\tau L^2}$, $f_0 = 
 
 To simulate a stiff string, I tried to directly solving the displacement, $u$, using Euler's method. It turns out to be quite unstable, especially when high frequency components present.
 
-Alternatively, we can solve $a_n$ and $b_n$ instead, which is very stable. We can get $u$ easily from them using (2). With the initial condition $u(x,t=0)$ and $u'(x,t=0)$, the corresponding $a_n$ and $b_n$ are:
+Alternatively, we can solve $a_n$ and $b_n$, which is very stable. With $a_n$ and $b_n$ available, we can get $u$ easily using (2). With the initial condition $u(x,t=0)$ and $u'(x,t=0)$, the corresponding $a_n$ and $b_n$ are:
   
 
 $$
@@ -51,6 +51,7 @@ b_n = \frac{1}{\omega _n}\frac{2}{L} &\int_0^L u'(x,0) \sin\left(\frac{n\pi}{L}x
 \end{align}
 $$
 
+Note that $a_n$ and $b_n$ remains the same value 
 ## Modeling External Force as a Dirac Delta Function Shaped Impulse
 
   
