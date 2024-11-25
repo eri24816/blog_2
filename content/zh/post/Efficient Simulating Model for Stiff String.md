@@ -51,24 +51,17 @@ Alternatively, we can solve $a_n$ and $b_n$ and then calculate $u$ from (2). Wit
 
 $$
 \begin{align}
-a_n = \frac{2}{L} &\int_0^L u(x,0) \sin\left(\frac{n\pi}{L}x\right) dx \\
+a_n = \frac{2}{L} &\int_0^L u(x,0) \sin\left(\frac{n\pi}{L}x\right) dx \\\
 b_n = \frac{1}{\omega _n}\frac{2}{L} &\int_0^L u'(x,0) \sin\left(\frac{n\pi}{L}x\right) dx
 \end{align}
 $$
 
-  
-
-In a real piano, the string interacts with the hammer, the damper, and the bridge, etc.. Thus, during the simulation, we would want to apply external forces to the string.
-
-  
-
 ## Modeling External Force as a Dirac Delta Function Shaped Impulse
 
   
+In a real piano, the string interacts with the hammer, the damper, and the bridge, etc.. Thus, during the simulation, we would want to apply external forces to the string.
 
 Specifically, assume the hammer hits the string at a certain position $x_0$ and time $t_0$ with an impulse $J$. Here we model the impulse as a single-point impact.
-
-  
 
 $$
 \begin{equation}
@@ -77,11 +70,7 @@ u'(x, t_0^+) = u'(x, t_0^-) +
 \end{equation}
 $$
 
-  
-
 By transforming (4) into the frequency domain using (3), we have:
-
-  
 
 $$
 \begin{align}
@@ -89,11 +78,7 @@ b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0
 \end{align}
 $$
 
-  
-
 The above equation is a special case at $t_0 = 0$ because (3) is only valid for $t = 0$. For general $t_0$, we need to consider the phase shift:
-
-  
 
 $$
 \begin{align}
@@ -101,8 +86,6 @@ a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0
 b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(2\pi f_n t_0)
 \end{align}
 $$
-
-  
 
 Although a delta function shaped impulse is feasible for a simulation in the frequency domain, it introduces intense high-frequency components. I'm not sure if it's realistic enough. Anyway, it's simple (no integration in it) thus efficient when used in a simulation.
   
