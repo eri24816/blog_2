@@ -5,7 +5,10 @@ authors:
   - eri24816
 image: https://i.imgur.com/1dGGCaN.png
 draft: false
-tags: 
+tags:
+  - math
+  - audio
+  - differentialEquation
 categories: Uncategorized
 series: 
 summary:
