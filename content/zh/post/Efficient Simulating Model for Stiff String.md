@@ -27,15 +27,11 @@ where $c$ is the wave speed, $E$ is the Young's modulus, $S$ is the cross-sectio
 
 The general solution is:
 
-  
-
 $$
 \begin{align}
 u(x,t) &= \sum_{n=1}^{\infty} \left( a_n \cos(2\pi f_n t) + b_n \sin(2\pi f_n t) \right) \sin\left(\frac{n\pi}{L}x\right)
 \end{align}
 $$
-
-  
 
 where $f_n = n f_0 \sqrt{1 + Bn^2}$, $B = \frac{\pi^2 ESK^2}{\tau L^2}$, $f_0 = \frac{c}{2L}$.
 
@@ -70,7 +66,7 @@ u'(x, t_0^+) = u'(x, t_0^-) +
 \end{equation}
 $$
 
-By transforming (4) into the frequency domain using (3), we have:
+By transforming (5) into the frequency domain using (3)(4), we have:
 
 $$
 \begin{align}
@@ -78,7 +74,7 @@ b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0
 \end{align}
 $$
 
-The above equation is a special case at $t_0 = 0$ because (3) is only valid for $t = 0$. For general $t_0$, we need to consider the phase shift:
+The above equation is a special case at $t_0 = 0$ because (3)(4) are only for $t = 0$. For a general $t_0$, we need to go a step further to consider the phase shift:
 
 $$
 \begin{align}
@@ -88,4 +84,3 @@ b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0
 $$
 
 Although a delta function shaped impulse is feasible for a simulation in the frequency domain, it introduces intense high-frequency components. I'm not sure if it's realistic enough. Anyway, it's simple (no integration in it) thus efficient when used in a simulation.
-  
