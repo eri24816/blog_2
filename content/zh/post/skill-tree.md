@@ -12,5 +12,21 @@ series:
 summary:
 ---
 - Math
-- Tech
-	- Programming
+- SWE
+	- Programming Language
+		- Scratch
+		- Processing
+		- C#
+		- C++
+		- Python
+		- Typescript
+	- Framework
+		- Unity
+		- PyTorch
+		- Juce
+		- VueJS
+- 
+	- CICD Tools
+		- Github Action
+		- ArgoCD
+		- Jenkins
