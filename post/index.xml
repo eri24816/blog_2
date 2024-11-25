@@ -6,42 +6,7 @@
 &lt;p>\end{align}&lt;/p>
 &lt;p>$$&lt;/p>
 &lt;p>where $c$ is the wave speed, $E$ is the Young&amp;rsquo;s modulus, $S$ is the cross-sectional area, $K$ is the radius of gyration, and $\rho$ is the density.&lt;/p>
-&lt;p>The general solution is:&lt;/p></description></item><item><title>我的技能樹</title><link>https://eri24816.tw/post/skill-tree/</link><pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/skill-tree/</guid><description>&lt;ul>
-&lt;li>Math&lt;/li>
-&lt;li>SWE
-&lt;ul>
-&lt;li>Programming Language
-&lt;ul>
-&lt;li>Scratch&lt;/li>
-&lt;li>Processing&lt;/li>
-&lt;li>C#&lt;/li>
-&lt;li>C++&lt;/li>
-&lt;li>Python&lt;/li>
-&lt;li>Typescript&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Framework
-&lt;ul>
-&lt;li>Unity&lt;/li>
-&lt;li>PyTorch&lt;/li>
-&lt;li>Juce&lt;/li>
-&lt;li>VueJS&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;ul>
-&lt;li>CICD Tools
-&lt;ul>
-&lt;li>Github Action&lt;/li>
-&lt;li>ArgoCD&lt;/li>
-&lt;li>Jenkins&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>用 Jenkins 佈署 Docker 應用程式</title><link>https://eri24816.tw/post/jenkins-docker/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/jenkins-docker/</guid><description>用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。</description></item><item><title>Book on a Rod</title><link>https://eri24816.tw/post/book-on-a-rod/</link><pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/book-on-a-rod/</guid><description>I was wondering how to quantitatively represent the capacity of an VAE’s latent variable (or a reconstruction step of a diffusion model) in bits, making it comparable to other distributions, such as the data distribution?</description></item><item><title>魔法</title><link>https://eri24816.tw/post/%E9%AD%94%E6%B3%95/</link><pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/%E9%AD%94%E6%B3%95/</guid><description>當我們發明的機器越來越符合上面兩個性質（或其他你覺得魔法該有的性質），你就越無法將其和「你心目中真正符合魔法性質的東西」區別，而我們將合理的把那些機器視為魔法。</description></item><item><title>Contact</title><link>https://eri24816.tw/post/contact/</link><pubDate>Mon, 11 Sep 2023 15:21:01 +0800</pubDate><guid>https://eri24816.tw/post/contact/</guid><description>&lt;a href="mailto:eri24816@gmail.com">eri24816@gmail.com&lt;/a></description></item><item><title>What I Gained From the 2022 APAC HPC-AI Competition</title><link>https://eri24816.tw/post/apac_hpc_ai/</link><pubDate>Tue, 25 Oct 2022 09:19:13 +0800</pubDate><guid>https://eri24816.tw/post/apac_hpc_ai/</guid><description>&lt;p>The 2022 APAC HPC AI Competition have just finished, which took 7 months from the beginning training to the final presentation.&lt;/p>
+&lt;p>The general solution is:&lt;/p></description></item><item><title>用 Jenkins 佈署 Docker 應用程式</title><link>https://eri24816.tw/post/jenkins-docker/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/jenkins-docker/</guid><description>用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。</description></item><item><title>Book on a Rod</title><link>https://eri24816.tw/post/book-on-a-rod/</link><pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/book-on-a-rod/</guid><description>I was wondering how to quantitatively represent the capacity of an VAE’s latent variable (or a reconstruction step of a diffusion model) in bits, making it comparable to other distributions, such as the data distribution?</description></item><item><title>魔法</title><link>https://eri24816.tw/post/%E9%AD%94%E6%B3%95/</link><pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/%E9%AD%94%E6%B3%95/</guid><description>當我們發明的機器越來越符合上面兩個性質（或其他你覺得魔法該有的性質），你就越無法將其和「你心目中真正符合魔法性質的東西」區別，而我們將合理的把那些機器視為魔法。</description></item><item><title>Contact</title><link>https://eri24816.tw/post/contact/</link><pubDate>Mon, 11 Sep 2023 15:21:01 +0800</pubDate><guid>https://eri24816.tw/post/contact/</guid><description>&lt;a href="mailto:eri24816@gmail.com">eri24816@gmail.com&lt;/a></description></item><item><title>What I Gained From the 2022 APAC HPC-AI Competition</title><link>https://eri24816.tw/post/apac_hpc_ai/</link><pubDate>Tue, 25 Oct 2022 09:19:13 +0800</pubDate><guid>https://eri24816.tw/post/apac_hpc_ai/</guid><description>&lt;p>The 2022 APAC HPC AI Competition have just finished, which took 7 months from the beginning training to the final presentation.&lt;/p>
 &lt;p>Here is a review about what I got from participating in the competition:&lt;/p>
 &lt;ul>
 &lt;li>
