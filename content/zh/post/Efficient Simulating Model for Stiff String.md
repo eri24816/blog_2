@@ -51,7 +51,7 @@ b_n = \frac{1}{\omega _n}\frac{2}{L} &\int_0^L u'(x,0) \sin\left(\frac{n\pi}{L}x
 \end{align}
 $$
 
-Note that $a_n$ and $b_n$ remains the same value 
+Note that $a_n$ and $b_n$ remain at the same value 
 ## Modeling External Force as a Dirac Delta Function Shaped Impulse
 
   
