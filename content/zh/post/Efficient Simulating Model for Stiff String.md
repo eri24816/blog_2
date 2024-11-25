@@ -1,5 +1,5 @@
 ---
-title: 
+title: Efficient Simulating Model for Stiff String
 date: 2024-11-25
 authors:
   - eri24816
