@@ -35,7 +35,7 @@
                     {{ .Description }}
 
                     {{ else }}
-                    {{ .Summary }}
+                    {{ .Summary | plainify | truncate (mul (default 150 .Site.Params.summaryLength) 2) }}
                     {{ end }}
                 </div>
 
