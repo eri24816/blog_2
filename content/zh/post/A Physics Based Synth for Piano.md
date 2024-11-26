@@ -23,7 +23,7 @@ The simplest form of the equation describing a vibrating string is:
 $$
 \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
 $$
-Where $u$ is the displacmence. Intuitively, the equation says that on each point of the string, a tension is applied to push it towards its neighbors because of the string's elasticity.
+Where $u$ is the displacement. Intuitively, the equation says that on each point of the string, a tension is applied to push it towards its neighbors because of the string's elasticity.
 
 Some of the strings in the real world can be well modeled by the equation above. On the other hand, piano strings have another important mechanical characteristic, stiffness, which means the string tend to not bend. On the equation, stiffness introduces a $4^{th}$ order term.
 $$
@@ -41,8 +41,7 @@ where $f_n = n f_0 \sqrt{1 + Bn^2}$, $B = \frac{\pi^2 ESK^2}{\tau L^2}$, $f_0 = 
 
 The $\sqrt{1 + Bn^2}$ illustrates how stiffness causes inharmonicity to the sound of the string.
 
-The amplitudes of harmonics $a_n$ and $b_n$ 
-In a real piano, the string interacts with the hammer, the damper, and the bridge, etc.. When external forces are applied to the string at a certain position $x0$ and with $J$ , $a_n$ and $b_n$ changes accordingly:
+The amplitudes of harmonics $a_n$ and $b_n$ are the variables to be tracked and calculated in each time step in the simulation. In a real piano, the string interacts with the hammer, the damper, and the bridge, etc.. When external forces are applied to the string at a certain position $x0$ and with $J$ , $a_n$ and $b_n$ changes accordingly (see [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}}) for detail):
 $$
 \begin{align}
 a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \cos(2\pi f_n t_0) \\\
@@ -50,5 +49,3 @@ b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0
 \end{align}
 $$
 
-
-[Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}})
