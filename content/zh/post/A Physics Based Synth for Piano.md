@@ -13,6 +13,6 @@ categories: Uncategorized
 series: 
 summary:
 ---
-I really like the sound of piano. 
+I really like the sounds of piano. They're a specific subset of all possible sound waves that 
 
 [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}})

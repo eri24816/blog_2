@@ -1,5 +1,5 @@
 ---
-title: Efficient Simulating Model for Stiff String
+title: Modeling Stiff String for Numeric Simulation
 date: 2024-11-25
 authors:
   - eri24816
