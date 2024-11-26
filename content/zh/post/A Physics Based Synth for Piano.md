@@ -13,4 +13,6 @@ categories: Uncategorized
 series: 
 summary:
 ---
+I really like the sound of piano. 
+
 [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}})

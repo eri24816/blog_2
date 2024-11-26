@@ -3,7 +3,7 @@ title: Efficient Simulating Model for Stiff String
 date: 2024-11-25
 authors:
   - eri24816
-image: https://i.imgur.com/1dGGCaN.png
+image: https://i.imgur.com/ydSU5KL.png
 draft: false
 tags:
   - math
