@@ -23,9 +23,9 @@ The simplest form of the equation describing a vibrating string is:
 $$
 \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
 $$
-Intuitively, the equation says the string 
+Intuitively, the equation says that on each point of the string, a tension is applied to push it towards its neighbors because of the string's elasticity.
 
-
-Piano strings have an important characteristic: stiffness. The introduction of stiffness 
+Other than elasticity, piano strings also have stiffness. On the aspe
+Stiffness introduces
 
 [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}})
