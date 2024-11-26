@@ -47,5 +47,5 @@ quote = "我想以最 high level 的角度理解世界，幫各種我喜歡的�
 
   [[menus.main]]
     name = 'Resume'
-    url = '/docs/resume241125.pdf'
+    url = 'https://eri24816.tw/docs/resume241125.pdf'
     weight = 40
