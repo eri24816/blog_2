@@ -23,14 +23,21 @@ The simplest form of the equation describing a vibrating string is:
 $$
 \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
 $$
-Intuitively, the equation says that on each point of the string, a tension is applied to push it towards its neighbors because of the string's elasticity.
+Where $u$ is the displacmence. Intuitively, the equation says that on each point of the string, a tension is applied to push it towards its neighbors because of the string's elasticity.
 
-Other than elasticity, piano strings also have stiffness. Stiffness means the string tend to not bend. Stiffness introduces a $4^{th}$ order term to the equation.
+Some of the strings in the re piano strings have another mechanical characteristic: stiffness. Stiffness means the string tend to not bend. On the equation, stiffness introduces a $4^{th}$ order term.
 $$
 \begin{align}
 \frac{\partial^2 u}{\partial t^2} &= c^2 \frac{\partial^2 u}{\partial x^2} - \frac{ESK^2}{\rho} \frac{\partial^4 u}{\partial x^4}
 \end{align}
 $$
+A nice article [The wave equation for stiff strings and piano tuning](https://upcommons.upc.edu/bitstream/handle/2117/101752/GraciaSanz.piano.RSCM.2017.pdf) provides the solution to the equation of stiff strings.
+$$
+\begin{align}
+u(x,t) &= \sum_{n=1}^{\infty} \left( a_n \cos(2\pi f_n t) + b_n \sin(2\pi f_n t) \right) \sin\left(\frac{n\pi}{L}x\right)
+\end{align}
+$$
+
 
 
 [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}})
