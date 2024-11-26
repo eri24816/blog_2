@@ -92,4 +92,4 @@ void Simulation::update()
 
 ## String Class
 
-The string class is the core for the entire simulation and contains 
+We finally reach the String class. The string class is the core for the entire simulation and contains heaviest calculation. Because a real-time synth is super performance sensitive, I search for 
