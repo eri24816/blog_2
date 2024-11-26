@@ -170,5 +170,5 @@ void String::applyImpulse(float x, float J)
 }
 ```
 
-## Optimization: AVX Intrinsics
+## Optimization: Vectorized Operations
 ...
