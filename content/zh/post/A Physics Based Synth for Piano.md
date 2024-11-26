@@ -49,3 +49,6 @@ b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0
 \end{align}
 $$
 
+# Turning the Model into Code!
+
+The most fun part of a building a simulation is to turn the math into code
