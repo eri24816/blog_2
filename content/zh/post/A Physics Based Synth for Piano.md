@@ -117,7 +117,7 @@ String::String(float L, float tension, float rho, float ESK2, int nHarmonics, fl
 }
 ```
 
-The `sampleU` method provides a way to get the value of $u(x)$. It is useful for sampling sound and calculating the interaction with the hammer.
+The `sampleU` method provides a way to get the current value of $u(x)$. It is useful for sampling sound and calculating the interaction with the hammer.
 
 ```c++
 float String::sampleU(float x) const
@@ -134,7 +134,7 @@ float String::sampleU(float x) const
 }
 ```
 
-The update method does damping. No much stuff here.
+The `update` method does damping. Very simple.
 
 ```c++
 void String::update(float t, float dt)
@@ -153,7 +153,7 @@ void String::update(float t, float dt)
 }
 ```
 
-The applyImpulse is called by the hammer-string-interaction.
+The `applyImpulse` method is called by the hammer-string-interaction. It changes the values of $a_n$ and $b_n$
 
 ```c++
 void String::applyImpulse(float x, float J)
@@ -168,3 +168,6 @@ void String::applyImpulse(float x, float J)
 	}
 }
 ```
+
+## Optimization: AVX Intrinsics
+...
