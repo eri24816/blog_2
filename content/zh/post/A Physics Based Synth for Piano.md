@@ -117,7 +117,7 @@ String::String(float L, float tension, float rho, float ESK2, int nHarmonics, fl
 }
 ```
 
-The `sampleU` method provides a way to get the value of $u(x)$
+The `sampleU` method provides a way to get the value of $u(x)$. It is useful for sampling sound and calculating the interaction with the hammer.
 
 ```c++
 float String::sampleU(float x) const
@@ -131,5 +131,40 @@ float String::sampleU(float x) const
 		u += (a[n] * std::cos(omegaT) + b[n] * std::sin(omegaT)) * xComp;
 	}
 	return u;
+}
+```
+
+The update method does damping. No much stuff here.
+
+```c++
+void String::update(float t, float dt)
+{
+	// A String have to store the time to have a complete state
+	this->t = t;
+	// TODO: use a physical damping model
+	if (damping != 0) {
+		for (int n = 1; n <= nHarmonics; n++)
+		{
+			float factor = std::exp(-damping * 0.002 * dt * harmonicFreqs[n]);
+			a[n] *= factor;
+			b[n] *= factor;
+		}
+	}
+}
+```
+
+The applyImpulse is called by the hammer-string-interaction.
+
+```c++
+void String::applyImpulse(float x, float J)
+{
+	for (int n = 1; n <= nHarmonics; n++)
+	{
+		const float xComp = 2 * J / L / rho / harmonicOmega[n] * std::sin(n * PI * x / L);
+		const float omegaT = harmonicOmega[n] * t;
+
+		a[n] += xComp * std::cos(omegaT);
+		b[n] += xComp * std::sin(omegaT);
+	}
 }
 ```
