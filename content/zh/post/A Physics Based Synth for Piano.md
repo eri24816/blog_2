@@ -19,6 +19,13 @@ Recently I try to make a synthesizer for piano by directly simulate the vibratio
 
 # The Model of a String
 
-Piano strings have an important characteristic: 
+The simplest form of the equation describing a vibrating string is:
+$$
+\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
+$$
+Intuitively, the equation says the string 
+
+
+Piano strings have an important characteristic: stiffness. The introduction of stiffness 
 
 [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}})
