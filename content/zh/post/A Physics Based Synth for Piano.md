@@ -56,7 +56,7 @@ Here comes the most fun part when building a simulation: to turn the math into c
 I implemented the synthesizer with Juce, a framework to build VSTs. The actual code for Juce is complicated. I will show simplified code in the following content, but keep the essence.
 
 ## Main Loop
-This is the main loop for rendering audio. For each time frame, the loop update the simulation then sample the displacement of the string at x=0.01meter. The displacement is then output as the audio sample.
+This is the main loop for rendering audio. For each time step, the loop update the simulation then sample the displacement of the string at x=0.01meter. The displacement is then output as the audio sample.
 ```c++
 // synthVoice.h
 // class SynthVoice : public juce::SynthesiserVoice
@@ -74,17 +74,18 @@ void renderNextBlock (AudioBuffer <float> &outputBuffer, int startSample, int nu
 }
 ```
 ## Simulation
-```
-	void Simulation::update()
+Let's see what the line `simulation->update();` does. Currently there are two objects, the string and the hammer
+```c++
+void Simulation::update()
+{
+	for (auto& interaction : interactions)
 	{
-		for (auto& interaction : interactions)
-		{
-			interaction->apply(t, dt);
-		}
-		for (auto& object : objects)
-		{
-			object->update(t, dt);
-		}
-		t += dt;
+		interaction->apply(t, dt);
 	}
+	for (auto& object : objects)
+	{
+		object->update(t, dt);
+	}
+	t += dt;
+}
 ```
