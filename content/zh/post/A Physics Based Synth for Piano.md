@@ -25,7 +25,7 @@ $$
 $$
 Where $u$ is the displacmence. Intuitively, the equation says that on each point of the string, a tension is applied to push it towards its neighbors because of the string's elasticity.
 
-Some of the strings in the re piano strings have another mechanical characteristic: stiffness. Stiffness means the string tend to not bend. On the equation, stiffness introduces a $4^{th}$ order term.
+Some of the strings in the real world can be well modeled by the equation above. On the other hand, piano strings have another important mechanical characteristic, stiffness, which means the string tend to not bend. On the equation, stiffness introduces a $4^{th}$ order term.
 $$
 \begin{align}
 \frac{\partial^2 u}{\partial t^2} &= c^2 \frac{\partial^2 u}{\partial x^2} - \frac{ESK^2}{\rho} \frac{\partial^4 u}{\partial x^4}
@@ -37,7 +37,8 @@ $$
 u(x,t) &= \sum_{n=1}^{\infty} \left( a_n \cos(2\pi f_n t) + b_n \sin(2\pi f_n t) \right) \sin\left(\frac{n\pi}{L}x\right)
 \end{align}
 $$
+where $f_n = n f_0 \sqrt{1 + Bn^2}$, $B = \frac{\pi^2 ESK^2}{\tau L^2}$, $f_0 = \frac{c}{2L}$.
 
-
+The $\sqrt{1 + Bn^2}$ causes inharmonicity to the sound of the string.
 
 [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}})
