@@ -74,7 +74,7 @@ void renderNextBlock (AudioBuffer <float> &outputBuffer, int startSample, int nu
 }
 ```
 ## Simulation
-Let's see what the line `simulation->update();` does. Currently there are two objects, the string and the hammer
+Let's see what the line `simulation->update();` does. In the simulation, there are two objects, the string and the hammer, and one interaction, the hammer-string-interaction. For each time step, interaction->apply is called, making the hammer and the string add forces to each other. Then object->update on both objects are called to update their step
 ```c++
 void Simulation::update()
 {
