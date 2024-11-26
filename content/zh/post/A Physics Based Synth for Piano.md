@@ -19,6 +19,6 @@ Recently I try to make a synthesizer for piano by directly simulate the vibratio
 
 # The Model of a String
 
-A special 
+Piano strings have an important characteristic: 
 
 [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}})
