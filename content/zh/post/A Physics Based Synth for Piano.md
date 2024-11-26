@@ -51,4 +51,6 @@ $$
 
 # Turning the Model into Code!
 
-The most fun part of a building a simulation is to turn the math into code
+Here comes the most fun part when building a simulation: to turn the math into code and verify that the math (I've worked hard on) actually works.
+
+I implemented the synthesizer with Juce
