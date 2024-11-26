@@ -13,7 +13,7 @@ summary:
 ---
 - Math
 	- Complex
-		- Julia Set
+		- [Fractals]({{< ref "fractals-gallery" >}})
 - Software Engineering
 	- Programming Language
 		- Scratch
@@ -34,4 +34,4 @@ summary:
 	- CICD Tools
 		- GitHub Actions
 		- ArgoCD
-		- Jenkins
+		- [Jenkins]({{< ref "zh/post/Jenkins-Docker" >}})
