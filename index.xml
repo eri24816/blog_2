@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>eri24816's blog</title><link>https://eri24816.tw/</link><description>Recent content on eri24816's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://eri24816.tw/index.xml" rel="self" type="application/rss+xml"/><item><title>Efficient Simulating Model for Stiff String</title><link>https://eri24816.tw/post/efficient-simulating-model-for-stiff-string/</link><pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/efficient-simulating-model-for-stiff-string/</guid><description>&lt;h1 id="analytical-solution-to-stiff-string">Analytical Solution to Stiff String&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>eri24816's blog</title><link>https://eri24816.tw/</link><description>Recent content on eri24816's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://eri24816.tw/index.xml" rel="self" type="application/rss+xml"/><item><title>Efficient Simulating Model for Stiff String</title><link>https://eri24816.tw/post/modeling-stiff-string-for-numeric-simulation/</link><pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/modeling-stiff-string-for-numeric-simulation/</guid><description>&lt;h1 id="analytical-solution-to-stiff-string">Analytical Solution to Stiff String&lt;/h1>
 &lt;p>According to &lt;a href="https://upcommons.upc.edu/bitstream/handle/2117/101752/GraciaSanz.piano.RSCM.2017.pdf">The wave equation for stiff strings and piano tuning&lt;/a>, the wave equation for a stiff string is:&lt;/p>
 &lt;p>$$
 \begin{align}
@@ -6,7 +6,7 @@
 \end{align}
 $$&lt;/p>
 &lt;p>where $c$ is the wave speed, $E$ is the Young&amp;rsquo;s modulus, $S$ is the cross-sectional area, $K$ is the radius of gyration, and $\rho$ is the density.&lt;/p>
-&lt;p>The general solution is:&lt;/p></description></item><item><title>My Skill Tree</title><link>https://eri24816.tw/post/skill-tree/</link><pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/skill-tree/</guid><description>&lt;ul>
+&lt;p>The equation&amp;rsquo;s general solution is:&lt;/p></description></item><item><title>My Skill Tree</title><link>https://eri24816.tw/post/skill-tree/</link><pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/skill-tree/</guid><description>&lt;ul>
 &lt;li>Math
 &lt;ul>
 &lt;li>Complex
