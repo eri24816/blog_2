@@ -1,5 +1,5 @@
 ---
-title: Deploy Docker Applications Automatically with Jenkins
+title: Continuously Deploy Docker Applications with Jenkins
 date: 2024-11-18
 authors:
   - eri24816

@@ -1,5 +1,5 @@
 ---
-title: 用 Jenkins 佈署 Docker 應用程式
+title: 用 Jenkins 持續佈署 Docker 應用程式
 date: 2024-11-18
 authors:
   - eri24816
