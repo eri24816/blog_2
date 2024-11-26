@@ -25,7 +25,12 @@ $$
 $$
 Intuitively, the equation says that on each point of the string, a tension is applied to push it towards its neighbors because of the string's elasticity.
 
-Other than elasticity, piano strings also have stiffness. On the aspe
-Stiffness introduces
+Other than elasticity, piano strings also have stiffness. Stiffness means the string tend to not bend. Stiffness introduces a $4^{th}$ order term to the equation.
+$$
+\begin{align}
+\frac{\partial^2 u}{\partial t^2} &= c^2 \frac{\partial^2 u}{\partial x^2} - \frac{ESK^2}{\rho} \frac{\partial^4 u}{\partial x^4}
+\end{align}
+$$
+
 
 [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}})
