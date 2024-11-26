@@ -49,11 +49,11 @@ b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0
 \end{align}
 $$
 
-# Turning the Model into Code!
+# Turn the Model into Code!
 
 Here comes the most fun part when building a simulation: to turn the math into code and verify that the math (I've worked hard on) actually works.
 
-I implemented the synthesizer with Juce, a framework to build VSTs. The actual code for Juce is complicated. I will show simplified code in the following content, but keep the essence.
+I implemented the synthesizer with Juce, a framework to build VSTs. The actual code for Juce is complicated, so I will show simplified code in the following content while keeping the essence.
 
 ## Main Loop
 This is the main loop for rendering audio. For each time step, the loop update the simulation then sample the displacement of the string at x=0.01meter. The displacement is then output as the audio sample.
@@ -73,8 +73,8 @@ void renderNextBlock (AudioBuffer <float> &outputBuffer, int startSample, int nu
 	}
 }
 ```
-## Simulation
-Let's see what the line `simulation->update();` does. In the simulation, there are two objects, the string and the hammer, and one interaction, the hammer-string-interaction. For each time step, interaction->apply is called, making the hammer and the string add forces to each other. Then object->update on both objects are called to update their step
+## Simulation Class
+Let's see what the line `simulation->update();` does. In the simulation, there are two objects, the string and the hammer, and one interaction, the hammer-string-interaction. For each time step, interaction->apply is called, making the hammer and the string add forces to each other. Then object->update on both objects are called to update their state.
 ```c++
 void Simulation::update()
 {
@@ -89,3 +89,7 @@ void Simulation::update()
 	t += dt;
 }
 ```
+
+## String Class
+
+The string class is the core for the entire simulation and contains 
