@@ -4,7 +4,7 @@ date: 2024-11-26
 authors:
   - eri24816
 image: https://i.imgur.com/1dGGCaN.png
-draft: true
+draft: false
 tags:
   - audio
   - Juce
@@ -53,7 +53,7 @@ $$
 
 Here comes the most fun part when building a simulation: to turn the math into code and verify that the math (I've worked hard on) actually works.
 
-I implemented the synthesizer with Juce, a framework to build VSTs. The actual code for Juce is complicated, so I will show simplified code in the following content while keeping the essence.
+I implemented the synthesizer with Juce, a framework to build VSTs. The actual code for Juce is complicated, so I will show simplified code in the following content while keeping the essence. The complete source code is here: https://github.com/eri24816/PhysicsBasedSynth.
 
 ## Main Loop
 This is the main loop for rendering audio. For each time step, the loop update the simulation then sample the displacement of the string at x=0.01meter. The displacement is then output as the audio sample.
@@ -92,9 +92,9 @@ void Simulation::update()
 
 ## String Class
 
-We finally reach the String class. The string class is the core for the entire simulation and contains heaviest calculation. Because a real-time synth is super performance sensitive, I put much effort into optimizing the code here.
+We finally reach the String class. The string class is the core for the entire simulation and contains heaviest calculation. Because a real-time synth is super performance sensitive, I put much effort and exhausted all possible ways to optimize the code in this class.
 
-The constructor initializes the amplitudes $a_n$ and $b_n$ and precomputes all values that 
+First of all, when the string is instantiated, the constructor initializes the amplitudes $a_n$ and $b_n$ and precomputes all values that depends on the string's physical attributes and used heavily during the simulation.
 ```c++
 String::String(float L, float tension, float rho, float ESK2, int nHarmonics, float damping)
 	: L(L), tension(tension), rho(rho), ESK2(ESK2), nHarmonics(nHarmonics), transform(nullptr, Vector2<float>{0.0f, 0.0f}), damping(damping)
@@ -116,6 +116,8 @@ String::String(float L, float tension, float rho, float ESK2, int nHarmonics, fl
 	}
 }
 ```
+
+The `sampleU` method provides a way to get the value of $u(x)$
 
 ```c++
 float String::sampleU(float x) const
