@@ -1,13 +1,13 @@
 ---
-title: "Reverb plugin"
+title: Reverb plugin
 date: 2022-03-16T17:33:37+08:00
 draft: false
-
-image: "https://i.imgur.com/8qGh9bk.png"
-categories: "music"
-tags: ["c++"]
-MathJax : true
-Summary: "我學到非常多好玩的觀念，像是 z transform、怎麼看 zero pole plot、如何用 C++ 來 OOP (踩各種指標的坑XD)。"
+image: https://i.imgur.com/8qGh9bk.png
+categories: music
+tags:
+  - Cpp
+MathJax: true
+Summary: 我學到非常多好玩的觀念，像是 z transform、怎麼看 zero pole plot、如何用 C++ 來 OOP (踩各種指標的坑XD)。
 ---
 一直想做的東西後來真的有課教我怎麼做，就會覺得那門課很吸引我。
 
@@ -205,4 +205,4 @@ float* update(float* input) override{
 這樣的話就可以保證不會爆炸了。原因如下:
 以最嚴格的情況來看，假設 low pass 和 all pass 的 amplitude response 都是 1，訊號從 feedback matrix 的輸出繞一圈回到 feedback matrix 前的 amplitude 增益就是 1，強度不變。而 feedback matrix 會將 8 個 channel 重新混合，feedback matrix 的每個 row 絕對值總和小於 1 這項限制保證了混合後的訊號不會因疊加而增強。
 
-不過因為訊號繞了一圈後，會發生複雜的項位改變，就算 feedback matrix 每個 row 絕對值總和非常接近 1，訊號卻很容易因為破壞性疊加而有很大的衰減率。而且 VST 的 sample rate 非常高(例如44100Hz)，所以還是會有不到 1 秒聲音就幾乎不見的情況。後來我們對這個問題的解法是在 IIR 前串聯約 50ms 的 convolution (FIR) ，最終效果不錯。
+不過因為訊號繞了一圈後，會發生複雜的項位改變，就算 feedback matrix 每個 row 絕對值總和非常接近 1，訊號卻很容易因為破壞性疊加而有很大的衰減率。而且 VST 的 sample rate 非常高(例如44100Hz)，所以還是會有不到 1 秒聲音就幾乎不見的情況。後來我們對這個問題的解法是在 IIR 前串聯約 50ms 的 convolution (FIR) ，最終效果不錯。暴力解XD

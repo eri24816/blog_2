@@ -170,5 +170,5 @@ void String::applyImpulse(float x, float J)
 }
 ```
 
-## Optimization: Vectorized Operations
+# Optimization: Vectorized Operations
 ...
