@@ -92,4 +92,42 @@ void Simulation::update()
 
 ## String Class
 
-We finally reach the String class. The string class is the core for the entire simulation and contains heaviest calculation. Because a real-time synth is super performance sensitive, I search for 
+We finally reach the String class. The string class is the core for the entire simulation and contains heaviest calculation. Because a real-time synth is super performance sensitive, I put much effort into optimizing the code here.
+
+The constructor initializes the amplitudes $a_n$ and $b_n$ and precomputes all values that 
+```c++
+String::String(float L, float tension, float rho, float ESK2, int nHarmonics, float damping)
+	: L(L), tension(tension), rho(rho), ESK2(ESK2), nHarmonics(nHarmonics), transform(nullptr, Vector2<float>{0.0f, 0.0f}), damping(damping)
+{
+	// precompute constants for speed
+	B = PI * PI * ESK2 / tension / L / L;
+	c = std::sqrtf(tension / rho);
+	f0 = c / (2 * L);
+	
+	for (int n = 1; n <= nHarmonics; n++)
+	{
+		// precompute more constants
+		harmonicFreqs[n] = getHarmonicFreq(n);
+		harmonicOmega[n] = TWO_PI * harmonicFreqs[n];
+
+		// initialize the amplitudes
+		a[n] = 0;
+		b[n] = 0;
+	}
+}
+```
+
+```c++
+float String::sampleU(float x) const
+{
+	float u = 0;
+	float pi_x_div_L = PI * x / L;
+	for (int n = 1; n <= nHarmonics; n++)
+	{
+		const float xComp = std::sin(n * pi_x_div_L);
+		const float omegaT = harmonicOmega[n] * t;
+		u += (a[n] * std::cos(omegaT) + b[n] * std::sin(omegaT)) * xComp;
+	}
+	return u;
+}
+```
