@@ -13,9 +13,9 @@ categories: Uncategorized
 series: 
 summary:
 ---
-I really like the sounds of piano. They are a subset of all possible sound waves, with some specific mathematical characteristics which make them sound bright but gentle at the same time. I've been trying to understand what's the magic inside the sounds of piano from i was 12 maybe till now, but I guess my math is still too bad to actually understand it from a fundamental aspect.
+I really like the sounds of piano. They are a subset of all possible sound waves, with some specific mathematical characteristics which make them sound bright but gentle at the same time. I've been trying to understand what's the magic inside the sounds of piano from i was maybe 12 till now, but I guess my math is still too bad to actually understand it from a fundamental aspect.
 
-Recently I try to make a synthesizer for piano by directly simulate the vibration of piano string and sample audio from it. Although the result sounds not actually like a real piano, the journey of implementing the synth is interesting enough to write down here.
+Recently I try to make a synthesizer for piano by directly simulate the vibration of piano string and sample audio from it. Although the result sounds not actually like a real piano, the journey of implementing the synth is interesting enough to be written down here.
 
 # The Model of a String
 
@@ -94,7 +94,8 @@ void Simulation::update()
 
 We finally reach the String class. The string class is the core for the entire simulation and contains heaviest calculation. Because a real-time synth is super performance sensitive, I put much effort and exhausted all possible ways to optimize the code in this class.
 
-First of all, when the string is instantiated, the constructor initializes the amplitudes $a_n$ and $b_n$ and precomputes all values that depends on the string's physical attributes and used heavily during the simulation.
+First of all, when the string is instantiated, the constructor initializes the amplitudes $a_n$ and $b_n$ and precomputes some values used heavily during the simulation.
+
 ```c++
 String::String(float L, float tension, float rho, float ESK2, int nHarmonics, float damping)
 	: L(L), tension(tension), rho(rho), ESK2(ESK2), nHarmonics(nHarmonics), transform(nullptr, Vector2<float>{0.0f, 0.0f}), damping(damping)
@@ -153,7 +154,7 @@ void String::update(float t, float dt)
 }
 ```
 
-The `applyImpulse` method is called by the hammer-string-interaction. It changes the values of $a_n$ and $b_n$
+The `applyImpulse` method is called by the hammer-string-interaction. It update the values of $a_n$ and $b_n$ due to the external impulse.
 
 ```c++
 void String::applyImpulse(float x, float J)
