@@ -53,4 +53,19 @@ $$
 
 Here comes the most fun part when building a simulation: to turn the math into code and verify that the math (I've worked hard on) actually works.
 
-I implemented the synthesizer with Juce
+I implemented the synthesizer with Juce, a framework to build VSTs. 
+
+```c++
+void renderNextBlock (AudioBuffer <float> &outputBuffer, int startSample, int numSamples) override
+{
+	for (int sample = 0; sample < numSamples; ++sample)
+	{
+		simulation->update();
+		const float currentSample = string->sampleU(0.01);
+		
+		outputBuffer.addSample(startSample, currentSample);
+			
+		++startSample;
+	}
+}
+```
