@@ -25,7 +25,7 @@ $$
 
 where $c$ is the wave speed, $E$ is the Young's modulus, $S$ is the cross-sectional area, $K$ is the radius of gyration, and $\rho$ is the density.
 
-The general solution is:
+The equation's general solution is:
 
 $$
 \begin{align}
