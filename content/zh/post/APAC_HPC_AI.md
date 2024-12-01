@@ -11,10 +11,6 @@ The 2022 APAC HPC AI Competition have just finished, which took 7 months from th
 
 Here is a review about what I got from participating in the competition:
 
-- Leadership
-
-    Being the captain of the Team NCKU, my role was a "buffer" between the competition organizer and our teammates.
-
 - Confidence in speaking English
 
     My past experiences of speaking English were bad. The most occasions where I had to speak English were interviews. I had to express myself in English, but most of the time I just stuck there and struggle with how I could turn my thought into words thus lost the opportunities. 
