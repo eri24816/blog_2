@@ -34,4 +34,4 @@ summary:
 	- CICD Tools
 		- GitHub Actions
 		- ArgoCD
-		- [Jenkins]({{< ref "zh/post/Jenkins-Docker" >}})
+		- [Jenkins]({{< ref "post/Jenkins-Docker" >}})
