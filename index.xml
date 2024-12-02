@@ -12,7 +12,7 @@ $$&lt;/p>
 &lt;ul>
 &lt;li>Complex
 &lt;ul>
-&lt;li>Julia Set&lt;/li>
+&lt;li>&lt;a href="https://eri24816.tw/post/fractals-gallery/">Fractals&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -51,7 +51,7 @@ $$&lt;/p>
 &lt;ul>
 &lt;li>GitHub Actions&lt;/li>
 &lt;li>ArgoCD&lt;/li>
-&lt;li>Jenkins&lt;/li>
+&lt;li>&lt;a href="https://eri24816.tw/post/jenkins-docker/">Jenkins&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -59,10 +59,6 @@ $$&lt;/p>
 &lt;/ul></description></item><item><title>用 Jenkins 持續佈署 Docker 應用程式</title><link>https://eri24816.tw/post/jenkins-docker/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/jenkins-docker/</guid><description>用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。</description></item><item><title>Book on a Rod</title><link>https://eri24816.tw/post/book-on-a-rod/</link><pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/book-on-a-rod/</guid><description>I was wondering how to quantitatively represent the capacity of an VAE’s latent variable (or a reconstruction step of a diffusion model) in bits, making it comparable to other distributions, such as the data distribution?</description></item><item><title>魔法</title><link>https://eri24816.tw/post/%E9%AD%94%E6%B3%95/</link><pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate><guid>https://eri24816.tw/post/%E9%AD%94%E6%B3%95/</guid><description>當我們發明的機器越來越符合上面兩個性質（或其他你覺得魔法該有的性質），你就越無法將其和「你心目中真正符合魔法性質的東西」區別，而我們將合理的把那些機器視為魔法。</description></item><item><title>Contact</title><link>https://eri24816.tw/post/contact/</link><pubDate>Mon, 11 Sep 2023 15:21:01 +0800</pubDate><guid>https://eri24816.tw/post/contact/</guid><description>&lt;a href="mailto:eri24816@gmail.com">eri24816@gmail.com&lt;/a></description></item><item><title>What I Gained From the 2022 APAC HPC-AI Competition</title><link>https://eri24816.tw/post/apac_hpc_ai/</link><pubDate>Tue, 25 Oct 2022 09:19:13 +0800</pubDate><guid>https://eri24816.tw/post/apac_hpc_ai/</guid><description>&lt;p>The 2022 APAC HPC AI Competition have just finished, which took 7 months from the beginning training to the final presentation.&lt;/p>
 &lt;p>Here is a review about what I got from participating in the competition:&lt;/p>
 &lt;ul>
-&lt;li>
-&lt;p>Leadership&lt;/p>
-&lt;p>Being the captain of the Team NCKU, my role was a &amp;ldquo;buffer&amp;rdquo; between the competition organizer and our teammates.&lt;/p>
-&lt;/li>
 &lt;li>
 &lt;p>Confidence in speaking English&lt;/p>
 &lt;p>My past experiences of speaking English were bad. The most occasions where I had to speak English were interviews. I had to express myself in English, but most of the time I just stuck there and struggle with how I could turn my thought into words thus lost the opportunities.&lt;/p></description></item><item><title>心得－中研院 summer intern</title><link>https://eri24816.tw/post/summer_intern/</link><pubDate>Tue, 06 Sep 2022 19:25:22 +0800</pubDate><guid>https://eri24816.tw/post/summer_intern/</guid><description>我聽著音樂寫code，期許要讓我做的AI也做出這麼”像音樂”的音樂，同時利用我自身聽音樂的感知做為設計模型的靈感。</description></item><item><title>對於 AI artist 的想法</title><link>https://eri24816.tw/post/ai_artist/</link><pubDate>Tue, 06 Sep 2022 15:21:01 +0800</pubDate><guid>https://eri24816.tw/post/ai_artist/</guid><description>AI 在畫月亮時，想的並不是月亮的意境、月亮在文化中代表什麼；它只是很會畫、顏色配的很好、形狀恰到好處。</description></item><item><title>生成音樂的夢</title><link>https://eri24816.tw/post/dream_of_music_generation/</link><pubDate>Fri, 10 Jun 2022 23:34:05 +0800</pubDate><guid>https://eri24816.tw/post/dream_of_music_generation/</guid><description>音樂像文字，還是圖像?</description></item><item><title>Reverb plugin</title><link>https://eri24816.tw/post/reverb_plugin/</link><pubDate>Wed, 16 Mar 2022 17:33:37 +0800</pubDate><guid>https://eri24816.tw/post/reverb_plugin/</guid><description>我學到非常多好玩的觀念，像是 z transform、怎麼看 zero pole plot、如何用 C++ 來 OOP (踩各種指標的坑XD)。</description></item><item><title>PyTorch RNN Tutorial</title><link>https://eri24816.tw/post/rnn_tutorial/</link><pubDate>Wed, 09 Mar 2022 12:54:18 +0800</pubDate><guid>https://eri24816.tw/post/rnn_tutorial/</guid><description>&lt;p>This tutorial will demonstrate how to build and train a simple RNN model with PyTorch.&lt;/p>
