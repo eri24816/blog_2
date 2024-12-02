@@ -15,7 +15,7 @@ categories: tech
 series: 
 summary: 用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。
 ---
-我用 Vue 和 Python 做了 AI 生成音樂的應用程式，然後用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。 
+我用 Vue 和 Python 做了 AI 生成音樂的應用程式，然後用 Jenkins 讓每個 commit 自動從 GitHub pull 下來並佈署到 server，非常方便。  
 
 前置作業是要在 server 上安裝 Docker 和 Jenkins。不過有人幫我裝好了，所以這裡不寫細節。(我也不會裝
 # 新增 Jenkinsfile 和 Dockerfile
