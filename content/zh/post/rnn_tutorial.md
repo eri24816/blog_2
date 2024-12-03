@@ -1,9 +1,11 @@
 ---
-title: "PyTorch RNN Tutorial"
+title: PyTorch RNN Tutorial
 date: 2022-03-09T12:54:18+08:00
-draft: false
+draft: true
 image: https://i.imgur.com/X6kty5v.jpg
-tags: ["Python","torch"]
+tags:
+  - Python
+  - torch
 mathjax: true
 categories: machine learning
 ---
