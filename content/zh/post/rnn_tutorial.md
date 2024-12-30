@@ -17,7 +17,7 @@ This tutorial will demonstrate how to build and train a simple RNN model with Py
 ### What can an RNN do?
  
 Given an input sequence $x=[x_1,x_2,\cdots,x_{n}]$, an RNN can generate a corresponding output sequence $\hat y=[\hat y_1,\hat y_2,\cdots,\hat y_{n}]$ 
-successively. The strength of RNN is that it can "remember" its previosly seen input elements. When calculating $\hat y_i$, the model can access not only $x_i$ but also the information from $x_0$ to $x_{i-1}$, via its hidden state, $h_{i-1}$.
+successively. The strength of RNN is that it can "remember" its previously seen input elements. When calculating $\hat y_i$, the model can access not only $x_i$ but also the information from $x_0$ to $x_{i-1}$, via its hidden state, $h_{i-1}$.
 
 
 ![Image](https://i.imgur.com/lw62OZL.png#center)
