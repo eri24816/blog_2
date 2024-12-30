@@ -45,13 +45,13 @@ b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0
 \end{align}
 $$</p><p>The above equation is a special case at $t_0 = 0$ because (3)(4) are only for $t = 0$. For a general $t_0$, we need to go a step further to consider the phase shift:</p><p>$$
 \begin{align}
-a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \cos(2\pi f_n t_0) \\
-b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(2\pi f_n t_0)
+a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \cos(\omega _n t_0) \\
+b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(\omega _n t_0)
 \end{align}
 $$</p><p>Although a delta function shaped impulse is feasible for a simulation in the frequency domain, it introduces intense high-frequency components. I&rsquo;m not sure if it&rsquo;s realistic enough. Anyway, it&rsquo;s simple (no integration in it) thus efficient when used in a simulation.</p><h2 id=modeling-external-force-as-a-gaussian-shaped-impulse>Modeling External Force as a Gaussian Shaped Impulse</h2><p>$$
 \begin{align}
-a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) e^{-\frac{1}{2}\sigma^2} \cos(2\pi f_n t_0) \\
-b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(2\pi f_n t_0)
+a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) e^{-\frac{1}{2}\sigma^2} \cos(\omega _n t_0) \\
+b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(\omega _n t_0)
 \end{align}
 $$</p></article></div></div><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><hr class=m-0></div><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2"><div class=blog-tags><a href=https://eri24816.tw/tags/math/>math</a>
 <a href=https://eri24816.tw/tags/audio/>audio</a>
