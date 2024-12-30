@@ -35,6 +35,8 @@ $$
 
 where $f_n = n f_0 \sqrt{1 + Bn^2}$, $B = \frac{\pi^2 ESK^2}{\tau L^2}$, $f_0 = \frac{c}{2L}$.
 
+
+
 # Simulation of Stiff String
 
 To simulate a stiff string, I tried to directly solving the displacement, $u$, using Euler's method. It turns out to be quite unstable, especially when high frequency components present.
@@ -76,8 +78,8 @@ The above equation is a special case at $t_0 = 0$ because (3)(4) are only for $t
 
 $$
 \begin{align}
-a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \cos(2\pi f_n t_0) \\\
-b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(2\pi f_n t_0)
+a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \cos(\omega _n t_0) \\\
+b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(\omega _n t_0)
 \end{align}
 $$
 
@@ -87,7 +89,7 @@ Although a delta function shaped impulse is feasible for a simulation in the fre
 
 $$
 \begin{align}
-a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) e^{-\frac{1}{2}\sigma^2} \cos(2\pi f_n t_0) \\\
-b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(2\pi f_n t_0)
+a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) e^{-\frac{1}{2}\sigma^2} \cos(\omega _n t_0) \\\
+b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(\omega _n t_0)
 \end{align}
 $$
