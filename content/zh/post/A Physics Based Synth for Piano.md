@@ -55,10 +55,10 @@ $$
 
 Here comes the most fun part when building a simulation: to turn the math into code and verify that the math (I've worked hard on) actually works.
 
-I implemented the synthesizer with Juce, a framework to build VSTs. The actual code for Juce is complicated, so I will show simplified code in the following content while keeping the essence. The complete source code is here: https://github.com/eri24816/PhysicsBasedSynth.
+I implemented the synthesizer with Juce, a framework to build VSTs. The actual code is complicated, so I will show simplified code in the following content while keeping the essence. The complete source code is here: https://github.com/eri24816/PhysicsBasedSynth.
 
 ## Main Loop
-This is the main loop for rendering audio. For each time step, the loop update the simulation then sample the displacement of the string at x=0.01meter. The displacement is then output as the audio sample.
+This is the main loop for rendering audio. For each time step, the loop updates the simulation then sample the displacement of the string at x=0.01meter. The displacement is then output as the audio sample.
 ```c++
 // synthVoice.h
 // class SynthVoice : public juce::SynthesiserVoice
@@ -76,7 +76,7 @@ void renderNextBlock (AudioBuffer <float> &outputBuffer, int startSample, int nu
 }
 ```
 ## Simulation Class
-Let's see what the line `simulation->update();` does. In the simulation, there are two objects, the string and the hammer, and one interaction, the hammer-string-interaction. For each time step, interaction->apply is called, making the hammer and the string add forces to each other. Then object->update on both objects are called to update their state.
+Let's dive into the line `simulation->update();`. In the simulation, there are two objects, the string and the hammer, and one interaction, the hammer-string-interaction. For each time step, interaction->apply is called, making the hammer and the string add forces to each other. Then object->update on both objects are called to update their state.
 ```c++
 void Simulation::update()
 {
@@ -96,7 +96,7 @@ void Simulation::update()
 
 We finally reach the String class. The string class is the core for the entire simulation and contains heaviest calculation. Because a real-time synth is super performance sensitive, I put much effort and exhausted all possible ways to optimize the code in this class.
 
-First of all, when the string is instantiated, the constructor initializes the amplitudes $a_n$ and $b_n$ and precomputes some values used heavily during the simulation.
+First of all, when the string is instantiated, the constructor initializes the amplitudes $a_n$ and $b_n$ and precomputes some constants.
 
 ```c++
 String::String(float L, float tension, float rho, float ESK2, int nHarmonics, float damping)
