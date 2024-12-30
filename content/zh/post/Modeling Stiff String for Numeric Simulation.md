@@ -94,7 +94,7 @@ Although a delta function shaped impulse is feasible for a simulation in the fre
 
 $$
 \begin{align}
-a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) e^{-\frac{1}{2}\sigma^2} \cos(\omega _n t_0) \\\
-b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(\omega _n t_0)
+a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} e^{-\frac{1}{2}k^2\sigma^2}\sin\left(k_nx_0\right)  \cos(\omega _n t_0) \\\
+b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} e^{-\frac{1}{2}k^2\sigma^2}\sin\left(k_nx_0\right) \sin(\omega _n t_0)
 \end{align}
 $$
