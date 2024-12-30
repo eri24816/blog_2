@@ -35,8 +35,13 @@ $$
 
 where $f_n = n f_0 \sqrt{1 + Bn^2}$, $B = \frac{\pi^2 ESK^2}{\tau L^2}$, $f_0 = \frac{c}{2L}$.
 
+Rewrite it with $\omega_n=2\pi f_n$ and $k_n=\frac{n\pi}{L}$:
 
-
+$$
+\begin{align}
+u(x,t) &= \sum_{n=1}^{\infty} \left( a_n \cos(\omega_n t) + b_n \sin(\omega_n t) \right) \sin\left(k_nx\right)
+\end{align}
+$$
 # Simulation of Stiff String
 
 To simulate a stiff string, I tried to directly solving the displacement, $u$, using Euler's method. It turns out to be quite unstable, especially when high frequency components present.
@@ -46,8 +51,8 @@ Alternatively, we can solve $a_n$ and $b_n$, which is very stable. With $a_n$ an
 
 $$
 \begin{align}
-a_n = \frac{2}{L} &\int_0^L u(x,t=0) \sin\left(\frac{n\pi}{L}x\right) dx \\\
-b_n = \frac{1}{\omega _n}\frac{2}{L} &\int_0^L u'(x,t=0) \sin\left(\frac{n\pi}{L}x\right) dx
+a_n = \frac{2}{L} &\int_0^L u(x,t=0) \sin\left(k_nx\right) dx \\\
+b_n = \frac{1}{\omega _n}\frac{2}{L} &\int_0^L u'(x,t=0) \sin\left(k_nx\right) dx
 \end{align}
 $$
 where $u(x,t=0)'=\frac{\partial u(x,t)}{\partial t}|_{t=0}$, and $\omega_n=2\pi f_n$.
@@ -78,8 +83,8 @@ The above equation is a special case at $t_0 = 0$ because (3)(4) are only for $t
 
 $$
 \begin{align}
-a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \cos(\omega _n t_0) \\\
-b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(\omega _n t_0)
+a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(k_nx_0\right) \cos(\omega _n t_0) \\\
+b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(k_nx_0\right) \sin(\omega _n t_0)
 \end{align}
 $$
 
