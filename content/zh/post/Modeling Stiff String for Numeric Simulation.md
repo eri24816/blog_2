@@ -48,7 +48,7 @@ a_n = \frac{2}{L} &\int_0^L u(x,0) \sin\left(\frac{n\pi}{L}x\right) dx \\\
 b_n = \frac{1}{\omega _n}\frac{2}{L} &\int_0^L u'(x,0) \sin\left(\frac{n\pi}{L}x\right) dx
 \end{align}
 $$
-
+where $u'=\frac{du}{dt}$
 Note that $a_n$ and $b_n$ remain constant over time as long as no external forces are applied to the string (explanation: $a_n$ and $b_n$ are not functions of $t$ in $(2)$). We don't need to do any computation during the simulation to handle how the wave travels. We only need to take care of how external forces affect $a_n$ and $b_n$.
 ## Modeling External Force as a Dirac Delta Function Shaped Impulse
 
@@ -87,7 +87,7 @@ Although a delta function shaped impulse is feasible for a simulation in the fre
 
 $$
 \begin{align}
-a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \cos(2\pi f_n t_0) \\\
+a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) e^{-\frac{1}{2}\sigma^2} \cos(2\pi f_n t_0) \\\
 b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \sin(2\pi f_n t_0)
 \end{align}
 $$
