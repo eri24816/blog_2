@@ -39,9 +39,11 @@ u(x,t) &= \sum_{n=1}^{\infty} \left( a_n \cos(2\pi f_n t) + b_n \sin(2\pi f_n t)
 $$
 where $f_n = n f_0 \sqrt{1 + Bn^2}$, $B = \frac{\pi^2 ESK^2}{\tau L^2}$, $f_0 = \frac{c}{2L}$.
 
-The $\sqrt{1 + Bn^2}$ illustrates how stiffness causes inharmonicity to the sound of the string.
+Notice that the term $\sqrt{1 + Bn^2}$ is introduced by the stiffness and causes inharmonicity to the sound of the string.
 
-The amplitudes of harmonics $a_n$ and $b_n$ are the variables to be tracked and calculated in each time step in the simulation. In a real piano, the string interacts with the hammer, the damper, and the bridge, etc.. When external forces are applied to the string at a certain position $x0$ and with $J$ , $a_n$ and $b_n$ changes accordingly (see [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}}) for detail):
+The amplitudes of harmonics $a_n$ and $b_n$ are the variables to be tracked and calculated in each time step in the simulation. 
+
+In a real piano, the string interacts with the hammer, the damper, and the bridge, etc.. When external forces are applied to the string at a certain position $x0$ and with $J$ , $a_n$ and $b_n$ changes accordingly (see [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}}) for detail):
 $$
 \begin{align}
 a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \cos(2\pi f_n t_0) \\\
