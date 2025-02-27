@@ -55,7 +55,9 @@ a_n = \frac{2}{L} &\int_0^L u(x,t=0) \sin\left(k_nx\right) dx \\\
 b_n = \frac{1}{\omega _n}\frac{2}{L} &\int_0^L u'(x,t=0) \sin\left(k_nx\right) dx
 \end{align}
 $$
+
 where $u(x,t=0)'=\frac{\partial u(x,t)}{\partial t}|_{t=0}$, and $\omega_n=2\pi f_n$.
+
 Note that $a_n$ and $b_n$ remain constant over time as long as no external forces are applied to the string (explanation: $a_n$ and $b_n$ are not functions of $t$ in $(2)$). We don't need to do any computation during the simulation to handle how the wave travels. We only need to take care of how external forces affect $a_n$ and $b_n$.
 ## Modeling External Force as a Dirac Delta Function Shaped Impulse
 
