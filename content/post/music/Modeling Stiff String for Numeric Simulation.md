@@ -9,11 +9,11 @@ tags:
   - math
   - audio
   - differentialEquation
-categories: Uncategorized
+categories: music
 series: 
 summary:
 ---
-# Analytical Solution to Stiff String
+## Analytical Solution to Stiff String
 
 According to [The wave equation for stiff strings and piano tuning](https://upcommons.upc.edu/bitstream/handle/2117/101752/GraciaSanz.piano.RSCM.2017.pdf), the wave equation for a stiff string is:
 
@@ -42,11 +42,11 @@ $$
 u(x,t) &= \sum_{n=1}^{\infty} \left( a_n \cos(\omega_n t) + b_n \sin(\omega_n t) \right) \sin\left(k_nx\right)
 \end{align}
 $$
-# Simulation of Stiff String
+## Simulation of Stiff String
 
 To simulate a stiff string, I tried to directly solving the displacement, $u$, using Euler's method. It turns out to be quite unstable, especially when high frequency components present.
 
-Alternatively, we can solve $a_n$ and $b_n$, which is very stable. With $a_n$ and $b_n$ available, we can get $u$ easily using (2). With the initial condition $u(x,t=0)$ and $u'(x,t=0)$, the corresponding $a_n$ and $b_n$ are:
+Alternatively, we can solve $a_n$ and $b_n$, which is very stable. With $a_n$, $b_n$, and $t$ available, we can get $u$ easily using (2). With the initial condition $u(x,t=0)$ and $u'(x,t=0)$, the corresponding $a_n$ and $b_n$ are:
   
 
 $$
@@ -59,7 +59,7 @@ $$
 where $u(x,t=0)'=\frac{\partial u(x,t)}{\partial t}|_{t=0}$, and $\omega_n=2\pi f_n$.
 
 Note that $a_n$ and $b_n$ remain constant over time as long as no external forces are applied to the string (explanation: $a_n$ and $b_n$ are not functions of $t$ in $(2)$). We don't need to do any computation during the simulation to handle how the wave travels. We only need to take care of how external forces affect $a_n$ and $b_n$.
-## Modeling External Force as a Dirac Delta Function Shaped Impulse
+### Modeling External Force as a Dirac Delta Function Shaped Impulse
 
   
 In a real piano, the string interacts with the hammer, the damper, and the bridge, etc.. Thus, during the simulation, we would want to apply external forces to the string.
@@ -90,10 +90,11 @@ b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(k_nx_0\right) \si
 \end{align}
 $$
 
-Although a delta function shaped impulse is feasible for a simulation in the frequency domain, it introduces intense high-frequency components. I'm not sure if it's realistic enough. Anyway, it's simple (no integration in it) thus efficient when used in a simulation.
+Although a delta function shaped impulse is feasible for a simulation in the frequency domain, it introduces intense high-frequency components, making the sound harsher.
 
-## Modeling External Force as a Gaussian Shaped Impulse
+### Modeling External Force as a Gaussian Shaped Impulse
 
+Using a gaussian shaped impulse, we can tune the parameter $\sigma$. In my experiments, larger $\sigma$ gives warmer sounds. 
 $$
 \begin{align}
 a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} e^{-\frac{1}{2}k^2\sigma^2}\sin\left(k_nx_0\right)  \cos(\omega _n t_0) \\\

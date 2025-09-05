@@ -13,12 +13,12 @@ tags:
   - automation
 categories: tech
 series: 
-summary: Use Jenkins to automatically pull each commit from GitHub and deploy it to the server. It's very convenient!
+summary: Use Jenkins to automatically pull each commit from GitHub and deploy it to the server.
 ---
 I created an AI-generated music application using Vue and Python, and I used Jenkins to automatically pull each commit from GitHub and deploy it to the server. It's very convenient!
 
 The initial setup involves installing Docker and Jenkins on the server. However, someone helped me with the installation, so I won’t go into the details here. (I don’t know how to install them either.)
-# Add Jenkinsfile and Dockerfile
+## Add Jenkinsfile and Dockerfile
 First, add Jenkinsfile and Dockerfile to your git repo.
 
 The Jenkinsfile is used to define three tasks to perform whenever there’s a new commit: build the image, remove the old container, then run the new container.
@@ -48,7 +48,7 @@ pipeline {
 }
 ```
 
-The content of the Dockerfile is not the focus of this discussion and may not always look like this, but I put it here FYI anyway:
+The content of the Dockerfile is not the focus of this discussion and may not always look like this, but I put it here anyway:
 ```Dockerfile
 FROM node:22-alpine as frontend-builder
 WORKDIR /frontend

@@ -9,29 +9,29 @@ tags:
   - audio
   - Juce
   - Cpp
-categories: Uncategorized
+categories: music
 series: 
 summary:
 ---
-I really like the sounds of piano. They are a subset of all possible sound waves, with some specific mathematical characteristics which make them sound bright but gentle at the same time. I've been trying to understand what's the magic inside the sounds of piano from i was maybe 12 till now, but I guess my math is still too bad to actually understand it from a fundamental aspect.
+I really like the sounds of piano. They are a subset of all possible sound waves, with some specific mathematical characteristics which make them sound bright while gentle at the same time. I've been trying to understand what's the magic inside the sounds of piano from i was maybe 12 till now, but I guess my math is still too bad to actually understand it from a fundamental aspect.
 
 Recently I try to make a synthesizer for piano by directly simulate the vibration of piano string and sample audio from it. Although the result sounds not actually like a real piano, the journey of implementing the synth is interesting enough to be written down here.
 
-# The Model of a String
+## The Model of a String
 
 The simplest form of the equation describing a vibrating string is:
 $$
 \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
 $$
-Where $u$ is the displacement. Intuitively, the equation says that on each point of the string, a tension is applied to push it towards its neighbors because of the string's elasticity.
+Where $u$ is the displacement. Intuitively, the equation says that on each point of the string, a tension is applied to pull it towards its neighbors because of the string's elasticity.
 
-Some of the strings in the real world can be well modeled by the equation above. On the other hand, piano strings have another important mechanical characteristic, stiffness, which represents how much the string tend to not bend. On the equation, stiffness introduces a $4^{th}$ order term.
+Some of the strings in the real world can be well modeled by the equation above. However, piano strings have another important mechanical characteristic, stiffness, which represents how much the string tend to not bend. In the equation, stiffness introduces a $4^{th}$ order term.
 $$
 \begin{align}
 \frac{\partial^2 u}{\partial t^2} &= c^2 \frac{\partial^2 u}{\partial x^2} - \frac{ESK^2}{\rho} \frac{\partial^4 u}{\partial x^4}
 \end{align}
 $$
-A nice article [The wave equation for stiff strings and piano tuning](https://upcommons.upc.edu/bitstream/handle/2117/101752/GraciaSanz.piano.RSCM.2017.pdf) provides the solution to the equation of such stiff strings.
+A nice article [The wave equation for stiff strings and piano tuning](https://upcommons.upc.edu/bitstream/handle/2117/101752/GraciaSanz.piano.RSCM.2017.pdf) solves the equation of such stiff strings:
 $$
 \begin{align}
 u(x,t) &= \sum_{n=1}^{\infty} \left( a_n \cos(2\pi f_n t) + b_n \sin(2\pi f_n t) \right) \sin\left(\frac{n\pi}{L}x\right)
@@ -39,11 +39,11 @@ u(x,t) &= \sum_{n=1}^{\infty} \left( a_n \cos(2\pi f_n t) + b_n \sin(2\pi f_n t)
 $$
 where $f_n = n f_0 \sqrt{1 + Bn^2}$, $B = \frac{\pi^2 ESK^2}{\tau L^2}$, $f_0 = \frac{c}{2L}$.
 
-Notice that the term $\sqrt{1 + Bn^2}$ is introduced by the stiffness and causes inharmonicity to the sound of the string.
+Notice that the factor $\sqrt{1 + Bn^2}$ is introduced by the stiffness and causes inharmonicity to the sound of the string.
 
-The amplitudes of harmonics $a_n$ and $b_n$ are the variables to be tracked and calculated in each time step in the simulation. 
+The amplitudes of harmonics $a_n$ and $b_n$ are the variables to be tracked in the simulation. 
 
-In a real piano, the string interacts with the hammer, the damper, and the bridge, etc.. When external forces are applied to the string at a certain position $x0$ and with $J$ , $a_n$ and $b_n$ changes accordingly (see [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}}) for detail):
+In a real piano, the string interacts with the hammer, the damper, and the bridge, etc.. When external forces are applied to the string at a certain position $x0$ and with $J$ , $a_n$ and $b_n$ changes accordingly (I wrote another post [Modeling Stiff String for Numeric Simulation]({{< ref "Modeling Stiff String for Numeric Simulation" >}}) for the math details):
 $$
 \begin{align}
 a_n(t_0^+) &= a_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0\right) \cos(2\pi f_n t_0) \\\
@@ -51,17 +51,16 @@ b_n(t_0^+) &= b_n(t_0^-) + \frac{2J}{L\rho\omega _n} \sin\left(\frac{n\pi}{L}x_0
 \end{align}
 $$
 
-# Turn the Model into Code!
+## Turn the Model into Code!
 
 Here comes the most fun part when building a simulation: to turn the math into code and verify that the math (I've worked hard on) actually works.
 
-I implemented the synthesizer with Juce, a framework to build VSTs. The actual code is complicated, so I will show simplified code in the following content while keeping the essence. The complete source code is here: https://github.com/eri24816/PhysicsBasedSynth.
+I implemented the synthesizer with Juce, a framework to build VSTs. The actual code is complicated, so I will show only the essential parts in the following content. The complete code is here: https://github.com/eri24816/PhysicsBasedSynth.
 
-## Main Loop
+### Main Loop
 This is the main loop for rendering audio. For each time step, the loop updates the simulation then sample the displacement of the string at x=0.01meter. The displacement is then output as the audio sample.
 ```c++
 // synthVoice.h
-// class SynthVoice : public juce::SynthesiserVoice
 
 void renderNextBlock (AudioBuffer <float> &outputBuffer, int startSample, int numSamples) override
 {
@@ -75,9 +74,11 @@ void renderNextBlock (AudioBuffer <float> &outputBuffer, int startSample, int nu
 	}
 }
 ```
-## Simulation Class
-Let's dive into the line `simulation->update();`. In the simulation, there are two objects, the string and the hammer, and one interaction, the hammer-string-interaction. For each time step, interaction->apply is called, making the hammer and the string add forces to each other. Then object->update on both objects are called to update their state.
+### Simulation Class
+Let's step into the function call `simulation->update();`. In the simulation, there are two objects, the string and the hammer, and one interaction, the hammer-string-interaction. For each time step, interaction->apply is called, making the hammer and the string add forces to each other. Then object->update on both objects are called to update their state.
 ```c++
+// Simulation.cpp
+
 void Simulation::update()
 {
 	for (auto& interaction : interactions)
@@ -92,13 +93,15 @@ void Simulation::update()
 }
 ```
 
-## String Class
+### String Class
 
-We finally reach the String class. The string class is the core for the entire simulation and contains heaviest calculation. Because a real-time synth is super performance sensitive, I put much effort and exhausted all possible ways to optimize the code in this class.
+The string class is the core for the entire simulation and contains heaviest calculation. Because a real-time synth is super performance sensitive, I put much effort and exhausted all possible ways to optimize the code in this class.
 
 First of all, when the string is instantiated, the constructor initializes the amplitudes $a_n$ and $b_n$ and precomputes some constants.
 
 ```c++
+// String.cpp
+
 String::String(float L, float tension, float rho, float ESK2, int nHarmonics, float damping)
 	: L(L), tension(tension), rho(rho), ESK2(ESK2), nHarmonics(nHarmonics), transform(nullptr, Vector2<float>{0.0f, 0.0f}), damping(damping)
 {
@@ -137,7 +140,7 @@ float String::sampleU(float x) const
 }
 ```
 
-The `update` method does damping. Very simple.
+The `update` method simply damps the string.
 
 ```c++
 void String::update(float t, float dt)
@@ -172,5 +175,43 @@ void String::applyImpulse(float x, float J)
 }
 ```
 
-# Optimization: Vectorized Operations
+## Optimization
+
+### Fast Successive Sin and Cos
+
+Notice that we have to calculate $u(x=0.05,t)$ for each rendering step. Recall that
+$$
+\begin{align}
+u(x,t) &= \sum_n \left( a_n \cos(\omega_nt) + b_n \sin(\omega_n t) \right) \sin\left(k_nx\right)
+\end{align},
+$$
+which means we need to calculate $\cos(\omega_nt)$ and $\sin(\omega_n t)$ for each $n$ and each rendering step. To avoid expensive trigonometric functions, we can instead iteratively compute them from previous rendering step with addition and multiplication:
+$$\cos(\omega_n(t+\delta))=\cos(\omega_n t)\cos(\omega_n \delta) - \sin(\omega_n t)\sin(\omega_n \delta)$$
+$$
+\sin(\omega_n(t+\delta)) = \sin(\omega_n t)\cos(\omega_n \delta) + \cos(\omega_n t)\sin(\omega_n \delta)
+$$
+
+```c++
+// String.cpp
+
+class FastSuccessiveSinCos {
+	public:
+		FastSuccessiveSinCos(__m256 t, __m256 d)
+		{
+			this->t = t;
+			this->d = d;
+			sinT = _mm256_sin_ps(this->t);
+			cosT = _mm256_cos_ps(this->t);
+			sinD = _mm256_sin_ps(this->d);
+			cosD = _mm256_cos_ps(this->d);
+		}
+
+		void next() {
+			__m256 oldSinT = sinT;
+			sinT = _mm256_add_ps(_mm256_mul_ps(oldSinT, cosD), _mm256_mul_ps(cosT, sinD));
+			cosT = _mm256_sub_ps(_mm256_mul_ps(cosT, cosD), _mm256_mul_ps(oldSinT, sinD));
+		}
+	...
+```
+### Vectorized Operations
 ...
