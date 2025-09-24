@@ -1,5 +1,5 @@
 ---
-title: Music generator application
+title: My first music generation app
 date: 2025-08-24
 authors:
   - eri24816
@@ -11,7 +11,7 @@ tags:
   - web
   - highlights
 categories: music
-series: 
+series:
 summary:
 ---
 ![](https://i.imgur.com/6oABwUs.jpeg)

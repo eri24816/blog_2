@@ -1,5 +1,5 @@
 ---
-title: Continuously Deploy a Docker Application with Jenkins
+title: Continuously deploy a Docker app with Jenkins
 date: 2024-11-18
 authors:
   - eri24816
@@ -12,7 +12,7 @@ tags:
   - Jenkins
   - automation
 categories: tech
-series: 
+series:
 summary: Use Jenkins to automatically pull each commit from GitHub and deploy it to the server.
 ---
 I created an AI-generated music application using Vue and Python, and I used Jenkins to automatically pull each commit from GitHub and deploy it to the server. It's very convenient!
