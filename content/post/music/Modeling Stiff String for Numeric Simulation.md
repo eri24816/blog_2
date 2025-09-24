@@ -10,8 +10,8 @@ tags:
   - audio
   - differentialEquation
 categories: music
-series: 
-summary:
+series:
+summary: This post presents a way to model the vibration of a stiff string and model the effects of external forces such as hammer impacts.
 ---
 ## Analytical Solution to Stiff String
 
