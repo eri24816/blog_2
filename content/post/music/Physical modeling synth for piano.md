@@ -1,5 +1,5 @@
 ---
-title: A Physics Based Synth for Piano
+title: Physical modeling synth for piano
 date: 2024-11-26
 authors:
   - eri24816
@@ -10,7 +10,7 @@ tags:
   - Juce
   - Cpp
 categories: music
-series: 
+series:
 summary:
 ---
 I really like the sounds of piano. They are a subset of all possible sound waves, with some specific mathematical characteristics which make them sound bright while gentle at the same time. I've been trying to understand what's the magic inside the sounds of piano from i was maybe 12 till now, but I guess my math is still too bad to actually understand it from a fundamental aspect.

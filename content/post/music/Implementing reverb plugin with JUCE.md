@@ -1,5 +1,5 @@
 ---
-title: Implementing a reverb VST with JUCE
+title: Implementing reverb plugin with JUCE
 date: 2022-03-16T17:33:37+08:00
 draft: false
 image: https://i.imgur.com/8qGh9bk.png
